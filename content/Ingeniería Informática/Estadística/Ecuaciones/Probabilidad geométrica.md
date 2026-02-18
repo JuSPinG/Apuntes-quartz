@@ -1,1 +1,0 @@
-$$P(P\in B)=\frac{\text{medida}(B)}{\text{medida}(A)}$$

@@ -1,1 +1,0 @@
-$$f(x_1, x_2,..., x_n)=f(x_1)\cdot f(x_2)\cdot \cdot \cdot f(x_n)$$

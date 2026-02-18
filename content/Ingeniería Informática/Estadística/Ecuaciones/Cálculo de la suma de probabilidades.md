@@ -1,1 +1,0 @@
-$$P(A_1\cup A_2 ...  A_n)=\sum_i P(A_i)-\sum_{i<j} P(A_i\cap A_j)+P(A_1\cup A_2 ...  A_n)$$
