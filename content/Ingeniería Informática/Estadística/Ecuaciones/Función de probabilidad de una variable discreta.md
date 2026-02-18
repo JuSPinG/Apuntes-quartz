@@ -1,0 +1,1 @@
+$$p(x_1, x_2,..., x_n)=p(x_1)\cdot p(x_2)\cdot \cdot \cdot p(x_n)$$

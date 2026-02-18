@@ -1,0 +1,4 @@
+==========================================================
+<<ERROR>>: en la cabecera de esta practica
+el campo 'SEGUNDO APELLIDO' es distinto del de las practicas anteriores
+==========================================================
