@@ -1,1 +1,0 @@
-$$\beta(\theta_1)=P(C\mid \theta=\theta_1)=1-P(\text{Error 2)}$$

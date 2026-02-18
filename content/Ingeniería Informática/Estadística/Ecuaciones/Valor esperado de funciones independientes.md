@@ -1,1 +1,0 @@
-$$E\{g(X)\cdot h(Y)\}=E\{g(X)\}\cdot E\{h(Y)\}$$

@@ -1,1 +1,0 @@
-$$P(X\in I_i, \ Y\in I_2)=\iint_{I_1\times I_2}f(x, y)\ dy\ dy$$

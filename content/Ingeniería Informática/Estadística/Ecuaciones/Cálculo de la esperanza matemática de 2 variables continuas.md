@@ -1,1 +1,0 @@
-$$E\{g(X, Y)\}=\int^{\infty}_{-\infty}\int^{\infty}_{-\infty}g(x, y)\ f(x, y)\ dx\ dy$$
