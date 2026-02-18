@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Título</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style/main.css'>
+    <script src='../main.js'></script>
+    <script>
+
+        function CargarDatos() {
+            let contador1 = getValue("ContadorI");
+            contador1++;
+            setValue("ContadorI", contador1);
+            
+            let contador2 = parseInt(getValue("Contador2I"), 10);
+            contador2 += 2;
+            setValue("Contador2I", contador2);
+
+            setValue("NombreS", getValue("NombreS"));
+            setValue("ContrasennaS", getValue("ContrasennaS"));
+            setValue("NListaI", getValue("NListaI"));
+            setValue("DiaD", getValue("DiaD"));
+
+            setValue("CumpleD", getValue("cumple"));
+            setValue("EmailS", getValue("email"));
+            setValue("MesM", getValue("mes"));
+            setValue("RangoR", getValue("rango"));
+        }
+
+    </script>
+</head>
+<body onload="CargarDatos()">
+    <form action="../index.html" method="get">
+        <div>
+            <label>Contador+1</label>
+            <input type="number" name="ContadorI" readonly>
+        </div>
+        <div>
+            <label>Contador+2</label>
+            <input type="number" name="Contador2I" readonly>
+        </div>
+        <div>
+            <label>Fecha cumple</label>
+            <input type="date" name="CumpleD" readonly>
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="text" name="EmailS" readonly>
+        </div>
+        <div>
+            <label>Mes actual</label>
+            <input type="month" name="MesM" readonly>
+        </div>
+        <div>
+            <label>Rango</label>
+            <input type="range" name="RangoR" readonly>
+        </div>
+        <div>
+            <label>Nombre</label>
+            <input type="text" name="NombreS" readonly>
+        </div>
+        <div>
+            <label>Contraseña</label>
+            <input type="password" name="ContrasennaS" readonly>
+        </div>
+        <div>
+            <label>Nº Lista</label>
+            <input type="number" name="NListaI" readonly>
+        </div>
+        <div>
+            <label>Día</label>
+            <input type="date" name="DiaD" readonly>
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

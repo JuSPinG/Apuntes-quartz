@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Keylogger_Project",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Key::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Key-Debug-8ab1c71828446b6f54e5.json",
+					"name" : "Key",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Keylogger_Client::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Keylogger_Client-Debug-aa778704102117de91b7.json",
+					"name" : "Keylogger_Client",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Keylogger_Server::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Keylogger_Server-Debug-3ee9ecf2095754e32d19.json",
+					"name" : "Keylogger_Server",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Marcos Santos/Documents/Sistema fuente/El gran archivo/Conocimiento/Asir/2do/Seguridad/Deberes/0. Creando un keylogger/build",
+		"source" : "C:/Users/Marcos Santos/Documents/Sistema fuente/El gran archivo/Conocimiento/Asir/2do/Seguridad/Deberes/0. Creando un keylogger"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

@@ -1,0 +1,4 @@
+C:/Users/Marcos Santos/Documents/Sistema fuente/El gran archivo/Conocimiento/Asir/2do/Seguridad/Deberes/0. Creando un keylogger/build/CMakeFiles/Keylogger_Client.dir
+C:/Users/Marcos Santos/Documents/Sistema fuente/El gran archivo/Conocimiento/Asir/2do/Seguridad/Deberes/0. Creando un keylogger/build/CMakeFiles/Keylogger_Server.dir
+C:/Users/Marcos Santos/Documents/Sistema fuente/El gran archivo/Conocimiento/Asir/2do/Seguridad/Deberes/0. Creando un keylogger/build/CMakeFiles/edit_cache.dir
+C:/Users/Marcos Santos/Documents/Sistema fuente/El gran archivo/Conocimiento/Asir/2do/Seguridad/Deberes/0. Creando un keylogger/build/CMakeFiles/rebuild_cache.dir

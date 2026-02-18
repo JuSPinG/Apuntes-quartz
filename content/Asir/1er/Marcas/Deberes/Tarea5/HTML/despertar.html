@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Rememorando el pasado</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Día 1, 10:06 -- Rememorando el pasado</h1>
+    <p>Cuando me levanto, lo primero que haces es mirar la hora, ¡Oh Dios mío! Ha pasado un montón de tiempo, se nota que la paliza me dejó molido.</p>
+	<p>Pese a todo, decido ojear algunas páginas de mi diario, a ver si encuentro algo interesante.</p>
+    <ul>
+		<li><a href="dia-9.html">Día -9</a>.</li>
+		<li><a href="dia-5.html">Día -5</a>.</li>
+		<li><a href="dia-2.html">Día -2</a>.</li>
+	</ul>
+	<p>La verdad es que esto explica muchas cosas... Sin pensármelo dos veces, me decido por ir al restaurante, de repente se me ha antojado comida china... y chinos, en general.</p>
+	<ul>
+		<li><a href="restaurante.html">Ir al restaurante</a>.</li>
+	</ul>
+    <img src="../Img/sprFilesBig_0.png" class="movimiento">
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/The Highway King.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+</body>
+</html>

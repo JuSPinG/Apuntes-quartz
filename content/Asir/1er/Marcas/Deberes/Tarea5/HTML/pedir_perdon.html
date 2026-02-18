@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tiempo de correr</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Día 0, 15:40 -- Tiempo de correr</h1>
+    <p>Subo a casa muy rápidamente a por el diario, y salgo corriacia la Casa de Campo donde la policía no pueda pillarme.</p>
+    <p>En medio del camino, empiezo a escuchar unas sirenas a lo lejos endo hque se van acercando cada vez más... No tengo mucho tiempo.</p>
+    <p>Hay una bifurcación entre una calle u otra, ¿A cuál debo dirigirme?</p>
+    <ul>
+        <li><a href="callejon_oscuro.html">Ir a la izquierda</a>.</li>
+        <li><a href="calle_abarrotada.html">Ir a la derecha</a>.</li>
+    </ul>
+    <img src="../Img/7.png">
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/Soft Skin.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+</body>
+</html>

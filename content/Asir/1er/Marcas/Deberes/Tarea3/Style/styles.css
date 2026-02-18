@@ -1,0 +1,64 @@
+@font-face {
+	font-family: MingLiu;
+	src: url('Fonts/mingliu.TTF') format('truetype');
+}
+
+* {
+	font-family: MingLiu;
+}
+
+body {
+    background-image: url("../Img/Background.png");
+	color: white;
+}
+
+#volver {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url("../Img/Fondo2.jfif");
+    width: 102%;
+    min-height: 100px;
+    height: auto;
+    margin: -20px;
+    padding-top: 20px;
+}
+
+img {
+	border-radius: 5%;
+}
+
+.cent {
+	text-align: center;
+}
+
+#portada {
+	width: 50%;
+	height: 50%;
+}
+
+a {
+	color: #00ff00;
+}
+
+li::before {
+	content: "😊";
+	margin-right: 10px;
+}
+
+.image-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.image-panel img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.image-panel img:hover {
+    transform: scale(1.03);
+}

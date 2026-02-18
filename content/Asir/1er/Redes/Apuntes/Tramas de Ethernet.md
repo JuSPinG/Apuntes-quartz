@@ -1,0 +1,5 @@
+Las tramas más largas que podemos encontrar en Wireshark son de 1506 bytes, esto se debe a que, si el máximo son 1518, unos tantos se han ido en el preambulo, y otros tantos en la correción de errores.
+
+Recordamos que la trama Ethernet se divide en dos. En la subcapa MAC, de arquitectura semiduplex, de tal forma que se da un *dominio de colisión*: cuando uno habla, los demás callan. Cada *hub*, tiene su dominio de colisión, si se uniesen, no solo el ancho de banda disminuiría, si no que también se vuelven más probables las colisiones, pudiendo crear finalmente un colapso de la red.
+
+Un *hub* solo conecta los dispositivos entre si, solo se encarga del enlace físico, de reenviar todos los bits que le llegan. Si se produce una colisión, serán los dispositivos a los que está conectado dicho *hub* los que lo tengan que solucionar.

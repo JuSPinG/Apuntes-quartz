@@ -1,0 +1,26 @@
+Todos estos comandos se deberán de hacer desde el modo administrador, es necesario tener ciertos privilegios.
+
+- Nombrar al dispositivo: `hostname {nombre}`.
+    - `configure terminal → hostname {nombre}`.
+- Poner contraseña al modo EXEC usuario: `password {contraseña}`.
+    - `configure terminal → line console 0 → password {contraseña} → login → end`.
+- Poner contraseña al modo EXEC privilegiado: `enable secret {contraseña}`.
+    - `configure terminal → enable secret {contraseña} → exit`.
+    - Esto mismo se puede aplicar a las líneas VTY:
+        - `configure terminal → line vty 0 15 → password {contraseña} → login → end`.
+- Encriptar todas las contraseñas: `service password-encryption`.
+    - `configure terminal → service password-encryption`.
+- Mostrar la configuración del dispositivo: `show running-config`.
+    - `show running-config`.
+- Establecer un texto de aviso al intentar entrar al modo administrador: `banner motd {texto de aviso}`.
+    - `configure terminal → banner motd {carácter especial}{mensaje}{carácter especial}`.
+- Eliminar los cambios no guardados: `reload`.
+    - `reload`.
+- Guardar la configuración actual del dispositivo: `copy running-config startup-config`.
+    - `copy running-config startup-config`.
+- Establecer una dirección IP: `ip addres 192.168.X.XXX ...`
+	- `configure terminal → interface vlan 1 → ip addres 192.168.X.XXX 255.255.255.0 → no shutdown → exit → ip default-gateway 192.168.X.XXX`.
+- Ver el estado de la IPs: `show ip interface [brief]`.
+	- `show ip interface [brief]`.
+- Abrir/bloquear el estado de una conexión:
+	- `configure terminal → interface {conexión} → [no] shutdown → exit`.

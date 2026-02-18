@@ -1,0 +1,3 @@
+C:\LL\CMake\bin\cmake.exe -E rm -f CMakeFiles\Keylogger_Server.dir/objects.a
+C:\LL\msys64\ucrt64\bin\ar.exe qc CMakeFiles\Keylogger_Server.dir/objects.a @CMakeFiles\Keylogger_Server.dir\objects1.rsp
+C:\LL\msys64\ucrt64\bin\c++.exe -g -static -Wl,--whole-archive CMakeFiles\Keylogger_Server.dir/objects.a -Wl,--no-whole-archive -o Keylogger_Server.exe -Wl,--out-implib,libKeylogger_Server.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Keylogger_Server.dir\linkLibs.rsp

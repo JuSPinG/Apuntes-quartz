@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/Marcos Santos/Documents/Sistema fuente/El gran archivo/Conocimiento/Asir/2do/Seguridad/Deberes/0. Creando un keylogger/build",
+  "command": "C:\\LL\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles/Keylogger_Client.dir/includes_CXX.rsp -g -o CMakeFiles\\Keylogger_Client.dir\\src\\client\\main.cpp.obj -c \"C:\\Users\\Marcos Santos\\Documents\\Sistema fuente\\El gran archivo\\Conocimiento\\Asir\\2do\\Seguridad\\Deberes\\0. Creando un keylogger\\src\\client\\main.cpp\"",
+  "file": "C:/Users/Marcos Santos/Documents/Sistema fuente/El gran archivo/Conocimiento/Asir/2do/Seguridad/Deberes/0. Creando un keylogger/src/client/main.cpp",
+  "output": "CMakeFiles/Keylogger_Client.dir/src/client/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Marcos Santos/Documents/Sistema fuente/El gran archivo/Conocimiento/Asir/2do/Seguridad/Deberes/0. Creando un keylogger/build",
+  "command": "C:\\LL\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles/Keylogger_Server.dir/includes_CXX.rsp -g -o CMakeFiles\\Keylogger_Server.dir\\src\\server\\main.cpp.obj -c \"C:\\Users\\Marcos Santos\\Documents\\Sistema fuente\\El gran archivo\\Conocimiento\\Asir\\2do\\Seguridad\\Deberes\\0. Creando un keylogger\\src\\server\\main.cpp\"",
+  "file": "C:/Users/Marcos Santos/Documents/Sistema fuente/El gran archivo/Conocimiento/Asir/2do/Seguridad/Deberes/0. Creando un keylogger/src/server/main.cpp",
+  "output": "CMakeFiles/Keylogger_Server.dir/src/server/main.cpp.obj"
+}
+]
