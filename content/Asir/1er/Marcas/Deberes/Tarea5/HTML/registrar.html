@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registar el despacho</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Día 1, 11:50 -- Registar el despacho</h1>
+    <p>Tras buscar por un buen rato, encuentro unos documentos con una dirección. ¿A dónde me dirigo ahora?</p>
+    <ul>
+		<li><a href="direccion_archivo.html">A la dirección del archivo</a>.</li>
+		<li><a href="direccion_diario.html">A la otra dirección del diario</a>.</li>
+	</ul>
+    <img src="../Img/13.jpg">
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/Roller Mobster.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+</body>
+</html>

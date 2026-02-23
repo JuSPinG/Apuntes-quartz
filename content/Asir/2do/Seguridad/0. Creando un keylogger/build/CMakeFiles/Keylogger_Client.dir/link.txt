@@ -1,0 +1,3 @@
+C:\LL\CMake\bin\cmake.exe -E rm -f CMakeFiles\Keylogger_Client.dir/objects.a
+C:\LL\msys64\ucrt64\bin\ar.exe qc CMakeFiles\Keylogger_Client.dir/objects.a @CMakeFiles\Keylogger_Client.dir\objects1.rsp
+C:\LL\msys64\ucrt64\bin\c++.exe -g -static -Wl,--whole-archive CMakeFiles\Keylogger_Client.dir/objects.a -Wl,--no-whole-archive -o Keylogger_Client.exe -Wl,--out-implib,libKeylogger_Client.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Keylogger_Client.dir\linkLibs.rsp

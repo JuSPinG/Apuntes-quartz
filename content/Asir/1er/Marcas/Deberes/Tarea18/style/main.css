@@ -1,0 +1,69 @@
+@font-face {
+	font-family: "FiraSans";
+	src: url(../fonts/FiraSans-Regular.ttf);
+}
+
+:root {
+	--margen: 90%;
+	font-family: "FiraSans";
+}
+
+h1, h2 {
+	text-align: center;
+	font-family: monospace;
+}
+
+h1 {
+	font-size: 300%;
+}
+
+h2 {
+	font-size: 240%;
+}
+
+img {
+	height: 50px;
+	width: 50px;
+	margin: auto;
+	display: block;
+}
+
+li {
+	line-height: 175%;
+
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	color: #e98b18;
+}
+
+a:hover {
+	color: #8b2c1b;
+}
+
+a:active {
+	color: white;
+}
+
+a:visited {
+	color: black;
+}
+
+.recta {
+	margin-left: auto;
+	margin-right: auto;
+	width: var(--margen);
+	height: 5px;
+	background: #944024;
+}
+
+.aplicarMargen {
+	margin-left: calc(95% - var(--margen));
+	margin-right: calc(95% - var(--margen));
+}

@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "MSYS2 | UCRT64 GCC", // Cambia el nombre para reflejar tu setup
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            // Puedes dejar 'defines' por ahora, aunque no son específicos de GCC
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            // 1. Cambia el compilador a tu ruta real de g++.exe
+            "compilerPath": "C:/LL/msys64/ucrt64/bin/g++.exe", // ¡AJUSTA ESTA RUTA!
+            
+            // 2. Cambia el modo de IntelliSense a GCC para Windows
+            "intelliSenseMode": "gcc-x64", 
+            
+            // 3. Opcional: Ajusta los estándares a lo que acepta GCC 13
+            "cStandard": "c17",
+            "cppStandard": "c++17" 
+        }
+    ],
+    "version": 4
+}

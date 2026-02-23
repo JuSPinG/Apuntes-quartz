@@ -1,0 +1,3 @@
+C:\LL\CMake\bin\cmake.exe -E rm -f CMakeFiles\Key.dir/objects.a
+C:\LL\msys64\ucrt64\bin\ar.exe qc CMakeFiles\Key.dir/objects.a @CMakeFiles\Key.dir\objects1.rsp
+C:\LL\msys64\ucrt64\bin\c++.exe -g -Wl,--whole-archive CMakeFiles\Key.dir/objects.a -Wl,--no-whole-archive -o Key.exe -Wl,--out-implib,libKey.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Key.dir\linkLibs.rsp

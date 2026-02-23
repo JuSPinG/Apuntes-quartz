@@ -1,0 +1,24 @@
+.DS_Store
+.gitignore
+node_modules
+public
+prof
+tsconfig.tsbuildinfo
+.obsidian
+.quartz-cache
+private/
+.replit
+replit.nix
+content/Asir/1er/clase.txt
+*.exe
+content/Asir/1er/ISO/Queja formal del examen de ISO del 2024-11-28.md
+content/Asir/2do/Python/5. Juego de la vida con Rust/*
+content/Asir/1er/Practicas/*
+content/Asir/2do/Python/2. Gran proyecto/Datos/*
+content/Ingeniería/**/*.pdf
+"content/Ingeniería/Fundamentos de programación/Ejercicios/"
+**/.trash/
+**/.vscode/
+**/.build/
+**/.build/
+**/.obsidian/

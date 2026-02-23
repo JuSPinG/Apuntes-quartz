@@ -1,0 +1,1 @@
+$$[1]U\in[0,1]\xRightarrow{2}U\leq p \rightarrow X=1,\ ¬(U\leq p)\rightarrow X=0$$

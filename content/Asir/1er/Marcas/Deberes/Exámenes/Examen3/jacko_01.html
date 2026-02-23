@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Michael Json</title>
+    <script src='scripts/main.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='style/main.css'>
+
+    <script>
+
+        function CargarDatos() {
+            setValue("edad2", getValue("edad2") - 2);
+
+            let edad1 = getValue("edad1");
+            edad1++;
+            setValue("edad1", edad1);
+        }
+
+    </script>
+
+</head>
+<body onload="CargarDatos()">
+    <h1>Michael Jackson</h1>
+    <div class="container mt-3 border">
+        <h2>Data</h2>
+        <form action="#">
+            <div class="mb-3 mt-3">
+                <label for="age">Edad 1</label>
+                <input type="number" class="form-control" id="edad1" name="edad1">
+            </div>
+            <div class="mb-3">
+                <label for="age">Edad 2</label>
+                <input type="number" class="form-control" id="edad2" name="edad2">
+            </div>
+            <button type="submit" class="btn btn-primary izda">Update</button>
+        </form>
+    </div>
+    <div class="container mt-3 border">
+        <h2>LP</h2>
+        <form action="html/jacko_02.html">
+            <div class="mb-3 mt-3">
+                <label for="text">Disco</label>
+                <input type="text" class="form-control" id="disco" name="disco">
+            </div>
+            <div class="mb-3">
+                <label for="number">Nº unidades</label>
+                <input type="number" class="form-control" id="uds" name="uds">
+            </div>
+            <button type="submit" class="btn btn-primary izda">Comprar</button>
+        </form>
+    </div>
+    <div class="container mt-3 border">
+        <h2>Biografía</h2>
+        <form action="html/jacko_03.html">
+            <div class="mb-3 mt-3">
+                <label for="age">Año publicado</label>
+                <input type="number" class="form-control" id="anno" name="anno">
+            </div>
+            <div class="mb-3">
+                <label for="text">Fecha título</label>
+                <input type="date" class="form-control" id="fecha" name="fecha">
+            </div>
+            <button type="submit" class="btn btn-primary izda">Leer</button>
+        </form>
+    </div>
+    <br>
+</body>
+</html>
