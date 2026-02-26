@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../Style/styles.css">
+	<link rel="shortcut icon" href="../Img/favicon.ico" type="image/x-icon">
+	<title>Niveles</title>
+</head>
+<body>
+	<div id="volver"><center><h1><a href="main.html">Volver</a></h1></center></div>
+	<div class="image-panel">
+		<figure>
+			<a href="../Img/Level0.webp"><img src="../Img/Level0.webp" title="Nivel 1: Cruelty Squad Headquarters"></a>
+			<figcaption>Nivel 1: Cruelty Squad Headquarters (<a href="#" class="enlace-sonido">♫</a>)</figcaption>
+			<audio src="../Sounds/Music/hqfight.ogg-0ebae7755ed36eaafc68f71a1a85dacd.ogg" id="cancion1" preload="auto"></audio>
+			<script>
+
+				var enlace = document.querySelector('.enlace-sonido');
+				var sonido = document.getElementById('cancion1');
+		
+		
+				enlace.addEventListener('click', function(event) {
+					event.preventDefault();
+					sonido.play();
+		
+				});
+			</script>
+		</figure>
+		<figure>
+			<a href="../Img/Level1.png"><img src="../Img/Level1.png" title="Nivel 2: Pharmakokinetiks"></a>
+			<figcaption>Nivel 2: Pharmakokinetiks (<a href="#">♫</a>)</figcaption>
+			<audio src="../Sounds/Music/level2.ogg-87ab5f525f80d68185a93dc493dbb4f5.ogg" id="cancion2" preload="auto"></audio>
+			<script>
+
+				var enlace = document.querySelector('.enlace-sonido');
+				var sonido = document.getElementById('cancion2');
+		
+		
+				enlace.addEventListener('click', function(event) {
+					event.preventDefault();
+					sonido.play();
+		
+				});
+			</script>
+		</figure>
+		<figure>
+			<a href="../Img/Level2.png"><img src="../Img/Level2.png" title="Nivel 3: Paradise"></a>
+			<figcaption>Nivel 3: Paradise</figcaption>
+		</figure>
+		<figure>
+			<a href="../Img/Level3.png"><img src="../Img/Level3.png" title="Nivel 4: Sin Space Engineering"></a>
+			<figcaption>Nivel 4: Sin Space Engineering</figcaption>
+		</figure>
+		<figure>
+			<a href="../Img/Level4.png"><img src="../Img/Level4.png" title="Nivel 5: Androgen Assault"></a>
+			<figcaption>Nivel 5: Androgen Assault</figcaption>
+		</figure>
+		<figure>
+			<a href="../Img/Level5.png"><img src="../Img/Level5.png" title="Nivel 6: Mall Madness"></a>
+			<figcaption>Nivel 6: Mall Madness</figcaption>
+		</figure>
+		<figure>
+			<a href="../Img/Level6.png"><img src="../Img/Level6.png" title="Nivel 7: Apartment Atrocity"></a>
+			<figcaption>Nivel 7: Apartment Atrocity</figcaption>
+		</figure>
+		<figure>
+			<a href="../Img/Level7.png"><img src="../Img/Level7.png" title="Nivel 8: Seaside Shock"></a>
+			<figcaption>Nivel 8: Seaside Shock</figcaption>
+		</figure>
+	</div>
+</body>
+</html>

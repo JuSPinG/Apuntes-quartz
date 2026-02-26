@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>¡Qué aproveche!</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Día 1, 11:23 -- ¡Qué aproveche!</h1>
+	<p>Cuando llego, me doy cuenta de que el restaurante está cerrado, claro, lavan dinero. Pero aun así, hay gente dentro y la puerta no tiene seguridad.</p>
+	<p>¿Qué debería de hacer?</p>
+	<ul>
+		<li><a href="entrar_puerta.html">Entraré por la puerta</a>.</li>
+		<li><a href="buscar_entrada.html">Buscaré otra entrada</a>.</li>
+	</ul>
+    <img src="../Img/10.jpg">
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/Rando March.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+</body>
+</html>

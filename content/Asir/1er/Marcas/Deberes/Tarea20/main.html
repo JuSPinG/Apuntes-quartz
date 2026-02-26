@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Intérprete Markdown</title>
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js "></script>
+	<script src="scripts/main.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="styles/main.css">
+</head>
+<body>
+	<div class="sidebar">
+		<h2>Menú</h2>
+		<ul>
+			<li id="seleccionado"><button onclick="window.location.href='#'">Inicio</button></li>
+			<li><button onclick="window.location.href='html/d1.html'" type="button">Día 1</button></li>
+			<li><button onclick="window.location.href='html/d2.html'">Día 2</button></li>
+			<li><button onclick="window.location.href='html/d3.html'">Día 3</button></li>
+		</ul>
+	</div>
+	<div class="content" style="line-height: 180%;">
+			<p>Lo primero que hemos hecho ha sido configurar las ips, las netmask y los gateway de cada máquina virtual. Tras esto hemos instalado el minetest, que es el primer juego que nos ha llamado la atención, y Alberto ha instalado el servidor de minetest. Para acceder a él desde los clientes hemos tenido poner la ip del servidor y que crear una cuenta dentro de ese servidor para entrar, lo que le pasa a este juego y por lo que no lo hemos elegido definitivamente es que la sensibilidad no funciona correctamente en debian. La base de datos de este juego está hecha en sqlite y se encuentra en los archivos internos del servidor a los cuales podemos acceder.</p>
+			<p>Después de esto hemos intentado hacer lo mismo en el Westnoth, pero no hemos podido vernos entre todos los clientes creemos que debido a que en el juego los clientes no podían ver el servidor por lo que hemos buscado otros juegos.</p>
+			<p>Después de esto nos han dado un router donde hemos tenido que configurar su ip, desactivar el wifi y poner el rango de ips de nuestro grupo.</p>
+			<p>Hemos encontrado un juego llamado FreeCiv, en el que hemos podido entrar y conectarnos desde todos los clientes de la misma forma que hicimos en el minetest, pero en este juego todo funciona correctamente.</p>
+			<p>Tras esto se nos ha propuesto el objetivo de que alguien fuera de nuestra red pueda entrar y jugar con nosotros, para ello hemos tenido que configurar en el router un puerto para cada juego que redirija a la ip del servidor y con otro cable conectar el router a la red de la clase. Con esta configuración hacemos que cualquier persona que tenga acceso a la red de la clase pueda juegar en nuestro servidor, ya que al entrar al juego si pones la ip del router que después te lleva al servidor puedes conectarte y jugar entre todos.</p>
+	</div>
+</body>
+</html>

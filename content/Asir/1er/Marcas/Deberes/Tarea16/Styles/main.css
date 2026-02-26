@@ -1,0 +1,100 @@
+/*-- Generales --*/
+
+:root {
+    --color-resaltado1: #bc9ee0;
+    --color-resaltado2: #503c80;
+    --color-fondo1: #190032;
+    --color-fondo2: #463769;
+    --color-texto-base: #e8e8e8;
+    --color-titulo: #ffffff;
+    --interespaciado-textual: 150%;
+    --redondeado-imagen: 2%;
+}
+
+/*-- Fuentes --*/
+
+@font-face {
+    font-family: "Fira Sans Bold";
+    src: url("../fonts/FiraSans-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    src: url("../fonts/FiraSans-Regular.ttf");
+}
+
+body {
+    margin: 0;
+    /*background-color: var(--color-fondo1);*/
+    color: var(--color-texto-base);
+    font-family: "Fira Sans";
+    background:
+        radial-gradient(ellipse at top, var(--color-fondo1), transparent),
+        radial-gradient(ellipse at center, var(--color-fondo2), #000);
+}
+
+.content {
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+header {
+    background-color: var(--color-fondo2);
+    color: #fff;
+    padding: 7px;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-around; /* Distribución uniforme */
+}
+
+header nav li {
+    list-style-type: none;
+    flex: 1; /* Ancho igual para todos los elementos */
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-resaltado1);
+    transition: color 500ms;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--color-titulo)
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-titulo);
+    font-family: "Fira Sans Bold";
+}
+
+h1 {
+    text-align: center;
+}
+
+li {
+    list-style: circle;
+    line-height: var(--interespaciado-textual);
+}
+
+img {
+    margin: 2ch;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--redondeado-imagen);
+    max-width: 1000px;
+    max-height: 500px;
+}
+
+footer {
+    padding: 10px;
+    background: linear-gradient(0deg, var(--color-fondo2), transparent);
+}
+
+td {
+    text-align: center;
+}

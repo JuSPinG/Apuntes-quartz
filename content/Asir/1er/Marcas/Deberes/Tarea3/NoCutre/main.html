@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../Style/styles.css">
+	<link rel="shortcut icon" href="../Img/favicon.ico" type="image/x-icon">
+    <title>Inicio</title>
+</head>
+<body>
+    <h1 class="cent">Foro de entusiastas de</h1>
+	<center><img src="../Img/CrueltySquadNombre.jpg" width="15%"></center>
+	<br>
+    <h2>Introducción</h2>
+	<p>Cruelty Squad es un videojuego desarrollado por la empresa Consumer Softproducts, siendo este su primer videojuego.</p>
+	<h2>Descripción de <a href="https://store.steampowered.com/app/1388770/Cruelty_Squad/" target="_blank">Steam</a></h2>
+	<p>Un simulador de fantasía de poder inmersivo con elementos tácticos de sigilo ambientado en un mundo de basura infundido con aguas residuales.</p>
+    
+    <h2>Índice</h2>
+
+	<a href="Niveles.html" class="enlace-sonido"><li>Niveles</li></a>
+	<a href="Personajes.html" class="enlace-sonido"><li>Personajes</li></a>
+	<a href="Mecanicas.html" class="enlace-sonido"><li>Mecánicas</li></a>
+
+	<audio src="../Sounds/UI_grunt.wav-32197858e10f8d6c16e435bbd4e5d54e.wav" id="sonido" preload="auto"></audio>
+
+	<script>
+
+		const enlaces = document.querySelectorAll('.enlace-sonido');
+		const sonido = document.getElementById('sonido');
+
+
+		enlaces.forEach(enlace => {
+			enlace.addEventListener('click', function(event) {
+				event.preventDefault();
+				sonido.play();
+
+
+				sonido.onended = function() {
+					window.location.href = enlace.href;
+				};
+			});
+		});
+	</script>
+
+	<br>
+	<center><img src="../Img/CrueltySquad.jpg" id="portada"></center>
+
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/Music/intro.ogg-2d7d0771654ca8d25442d64a63f5fffb.ogg" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+
+</body>
+</html>

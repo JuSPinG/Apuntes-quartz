@@ -1,0 +1,38 @@
+body {
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.izda {
+    margin-left: auto;
+    display: block;
+}
+
+.cent {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gal {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

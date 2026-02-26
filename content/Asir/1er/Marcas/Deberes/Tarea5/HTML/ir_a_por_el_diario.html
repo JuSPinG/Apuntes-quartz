@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ir a por el diario</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Día 0, 15:36 -- Un viaje en taxi</h1>
+    <p>Tendré que parar a un taxi para ir a casa, esos malditos despiadados se van a enterar. Espero que no me pida dinero y que el viaje sea gratis porque no llevo la cartera encima. Llega un hombre que decide no hacerme muchas preguntas, tengo sangre en la ropa y varios cortes, por lo que espero infundirle miedo y que no me pida dinero.</p>
+    <p>Ya he llegado a casa, el taxista me ha pedido el dinero del viaje, ¿Qué debo hacer?</p>
+    <ul>
+        <li><a href="amenazarle.html">Le amenazaré</a>.</li>
+        <li><a href="subir_a_por_el_dinero.html">Le diré que espere, que tengo el dinero en casa, subo y se lo doy</a>.</li>
+    </ul>
+    <img src="../Img/2.png">
+
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/Burning Sunset.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+
+</body>
+</html>

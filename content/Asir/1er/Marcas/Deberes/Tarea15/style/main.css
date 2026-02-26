@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "Cake";
+    src: url("../fonts/Cake.otf");
+}
+
+@font-face {
+    font-family: "Army";
+    src: url("../fonts/Army.ttf");
+}
+
+html, body {
+    overflow: hidden; /* Bloquea el scroll */
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    font-size: 400%;
+}
+
+p {
+    font-size: 150%;
+}
+
+.centrado {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
