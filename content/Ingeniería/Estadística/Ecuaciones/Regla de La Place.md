@@ -1,0 +1,1 @@
+$$P(A)=\sum_{\omega \in A}\frac{1}{\#(\Omega)}=\frac{\#(A)}{\#(\Omega)}$$

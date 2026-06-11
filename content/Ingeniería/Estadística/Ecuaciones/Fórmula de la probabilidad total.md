@@ -1,0 +1,1 @@
+$$P(A_j\mid B)=\frac{P(A_j)\cdot P(B\mid A_j)}{\sum^n_{i=1}P(A_i)\cdot P(A\mid A_i)}$$
