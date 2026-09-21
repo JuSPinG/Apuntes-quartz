@@ -1,0 +1,101 @@
+---
+Autor: " José Antonio Cerrada Somolinos y Manuel E. Collado Machuca"
+---
+
+- [ ] Introducción a la programación.
+	- [ ] [[1.2 Programación e ingeniería de software]].
+	- [ ] [[1.5 Modelos abstractos de cómputo]].
+	- [ ] [[1.6 Elementos de la programación imperativa]].
+	- [ ] [[1.7 Evolución de la programación]].
+- [ ] Elementos básicos de la programación.
+	- [ ] [[2.2 Notación BNF]].
+	- [ ] [[2.3 Valores y tipos]].
+	- [ ] [[2.4 Representación de valores constantes]].
+	- [ ] [[2.5 Tipos predefinidos]].
+	- [ ] [[2.6 Expresiones aritméticas]].
+	- [ ] [[2.7 Operadores de escritura simples]].
+	- [ ] [[2.8 Estructura de un programa completo]].
+	- [ ] [[2.9 Ejemplos de programas]].
+- [ ] Constantes y variables.
+	- [ ] [[3.1 Identificadores]].
+	- [ ] [[3.2 El vocabulario de C±]].
+	- [ ] [[3.3 Constantes]].
+	- [ ] [[3.4 Variables]].
+	- [ ] [[3.5 Sentencia de asignación]].
+	- [ ] [[3.6 Operadores de lectura simple]].
+	- [ ] [[3.7 Estructura de un programa con declaraciones]].
+	- [ ] [[3.8 Ejemplos de programas]].
+- [ ] Metodología de Desarrollo de Programas I.
+	- [ ] [[4.1 La programación como resolución de problemas]].
+	- [ ] [[4.2 Descomposición en subproblemas]].
+	- [ ] [[4.3 Desarrollo por refinamientos sucesivos]].
+	- [ ] [[4.4 Aspectos de estilo]].
+	- [ ] [[4.5 Ejemplos de programas]].
+- [ ] Estructuras Básicas de la Programación Imperativa.
+	- [ ] [[5.1 Programación estructurada]].
+	- [ ] [[5.2 Expresiones condicionales]].
+	- [ ] [[5.3 Estructuras básicas en C±]].
+	- [ ] [[5.4 Ejemplos de programas]].
+- [ ] Metodología de Desarrollo de Programas II.
+	- [ ] [[6.1 Desarrollo con esquemas de selección e iteración]].
+	- [ ] [[6.2 Ejemplos de desarrollo con esquemas]].
+	- [ ] [[6.3 Verificación de programas]].
+	- [ ] [[6.4 Eficiencia de programas. Complejidad]].
+- [ ] Funciones y Procedimientos.
+	- [ ] [[7.1 Concepto de subprograma]].
+	- [ ] [[7.2 Funciones]].
+	- [ ] [[7.3 Procedimientos]].
+	- [ ] [[7.4 Paso de argumentos]].
+	- [ ] [[7.5 Visibilidad. Estructura de bloques]].
+	- [ ] [[7.6 Recursividad de subprogramas]].
+	- [ ] [[7.7 Problemas en el uso de subprogramas]].
+	- [ ] [[7.8 Ejemplos de programas]].
+- [ ] Metodología de Desarrollo de Programas III.
+	- [ ] [[8.1 Operaciones abstractas]].
+	- [ ] [[8.2 Desarrollo usando abstracciones]].
+	- [ ] [[8.3 Programas robustos]].
+- [ ] Definición de tipos.
+	- [ ] [[9.1 Tipos definidos]].
+	- [ ] [[9.2 Tipo enumerado]].
+	- [ ] [[9.3 El tipo predefinido bool]].
+	- [ ] [[9.4 Tipos estructurados]].
+	- [ ] [[9.5 Tipo formación y su necesidad]].
+	- [ ] [[9.6 Tipo vector]].
+	- [ ] [[9.7 Vector de caracteres. Cadena (string)]].
+	- [ ] [[9.8 Tupla y su necesidad]].
+	- [ ] [[9.9 Tipo registro (struct)]].
+	- [ ] [[9.10 Ejemplos de programas]].
+- [ ] Ampliación de estructuras de control.
+	- [ ] [[10.1 Estructuras complementarias de iteración]].
+	- [ ] [[10.2 Estructuras complementarias de selección]].
+	- [ ] [[10.3 Equivalencia entre estructuras]].
+	- [ ] [[10.4 Ejemplos de programas]].
+- [ ] Estructuras de datos.
+	- [ ] [[11.1 Argumentos de tipo vector abierto]].
+	- [ ] [[11.2 Formaciones anidadas. Matrices]].
+	- [ ] [[11.3 El esquema tipo unión]].
+	- [ ] [[11.4 Esquema de datos y esquemas de acciones]].
+- [ ] Esquemas típicos de operación con formaciones.
+	- [ ] [[12.1 Esquema de recorrido]].
+	- [ ] [[12.2 Búsqueda secuencial]].
+	- [ ] [[12.3 Inserción]].
+	- [ ] [[12.4 Ordenación por inserción directa]].
+	- [ ] [[12.5 Búsqueda por dicotomía]].
+	- [ ] [[12.6 Simplificación de las condiciones de contorno]].
+	- [ ] [[12.7 Ejemplos de programas]].
+- [ ] Punteros y variables dinámicas.
+	- [ ] [[Conocimiento/Informática/Ingeniería/Fundamentos de programación/13. Punteros y variables dinámicas/13.1 Estructuras de datos no acotadas]].
+	- [ ] [[13.2 La estructura secuencia]].
+	- [ ] [[13.3 Variables dinámicas]].
+	- [ ] [[13.4 Realización de secuencias mediante punteros]].
+	- [ ] [[13.5 Punteros y paso de argumentos]].
+	- [ ] [[13.6 Punteros y vectores en C y C++]].
+- [ ] Tipos abstractos de datos.
+	- [ ] [[14.1 Concepto de tipo abstracto de datos (TAD)]].
+	- [ ] [[14.2 Realización de tipos abstractos en C±]].
+	- [ ] [[14.3 Metodología basada en abstracciones]].
+	- [ ] [[14.4 Ejemplo. Dibujar una Curva-C]].
+- [ ] Módulos.
+	- [ ] [[15.1 Concepto de módulo]].
+	- [ ] [[15.2 Módulos en C±]].
+	- [ ] [[15.3 Desarrollo modular basado en abstracciones]].

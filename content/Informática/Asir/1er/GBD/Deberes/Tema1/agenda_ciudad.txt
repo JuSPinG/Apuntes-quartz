@@ -1,0 +1,12 @@
+Ciudad            Index
+------            -----
+Buenos Aires      4
+Ciudad de Mexico  6
+Madrid            1
+Madrid            2
+Madrid            3
+Madrid            5
+Madrid            8
+Madrid            9
+Madrid            10
+Lima              7

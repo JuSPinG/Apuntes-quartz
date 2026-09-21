@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Carta magic</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+	@font-face {
+		font-family: Nombre;
+		src: url(Nombre.otf);
+	}
+
+	@font-face {
+		font-family: Descripcion;
+		src: url(Descripcion.ttf);
+	}
+</style>
+<body style="background-color: rgb(146, 146, 146);">
+	<svg viewBox="0 0 100 100" width="400" height="560" style="background:#fff">
+		<rect width="100" height="140" x="0" y="-20" rx="6" ry="6" fill="black"/>
+		<rect width="87.5" height="126" x="6.25" y="-13.5" rx="0" ry="0" fill="#f1e8dc"/>
+		
+		<rect width="85" height="10" x="7.5" y="-11.5" rx="1.25" ry="10" fill="#f9fbf6"/>
+		<rect width="84" height="9" x="8" y="-11" rx="1.25" ry="10" fill="black"/>
+		<rect width="83" height="8" x="8.5" y="-10.5" rx="1.25" ry="10" fill="#f3f3eb"/>
+		<text font-size="5" x="11" y="-4.75" fill="black" font-family="Nombre" class="cambiable">Juano, el gato marihuano</text>
+		<image width="5" height="5" x="85" y="-9" href="Blanco.webp"/>
+		
+		<rect width="82.5" height="60" x="8.75" y="-1.5" rx="0" ry="0" fill="#f9fbf6"/>
+		<rect width="81.5" height="59" x="9.25" y="-1" rx="0" ry="0" fill="#171717"/>
+		<rect width="80.25" height="57.75" x="9.875" y="-0.375" rx="0" ry="0" fill="white"/>
+		<image width="80.25" height="57.75" x="9.875" y="-0.375" class="cambiable" href="https://i.etsystatic.com/11944347/r/il/d576cc/5759845341/il_fullxfull.5759845341_ab0j.jpg"/>
+
+		<rect width="85" height="10" x="7.5" y="58.5" rx="1.25" ry="10" fill="#f9fbf6"/>
+		<rect width="84" height="9" x="8" y="59" rx="1.25" ry="10" fill="black"/>
+		<rect width="83" height="8" x="8.5" y="59.5" rx="1.25" ry="10" fill="#f3f3eb"/>
+		<text font-size="4" x="11" y="64.5" fill="black" font-family="Nombre" class="cambiable">Criatura legendaria - gato fumón</text>
+
+		<rect width="82.5" height="35" x="8.75" y="68.5" rx="0" ry="0" fill="#f9fbf6"/>
+		<rect width="81.5" height="34" x="9.25" y="69" rx="0" ry="0" fill="#171717"/>
+		<rect width="80.25" height="32.75" x="9.875" y="69.625" rx="0" ry="0" fill="white"/>
+		<text font-size="4" x="11" y="75.5" fill="black" font-family="Descripcion" class="cambiable">Amenaza, arrolla</text>
+		<text font-size="3.5" x="11" y="82" fill="black" font-family="Descripcion" class="cambiable">Este gato ultrafumón es capaz de fumarse al</text>
+		<text font-size="3.5" x="11" y="86" fill="black" font-family="Descripcion" class="cambiable">rival y a NICOL BOLAS en cuestión de</text>
+		<text font-size="3.5" x="11" y="90" fill="black" font-family="Descripcion" class="cambiable">segundos.</text>
+
+		<rect width="20" height="10" x="72" y="100" rx="2" ry="10" fill="black"/>
+		<rect width="19.5" height="9.5" x="72.25" y="100.25" rx="2" ry="10" fill="#f9fbf6"/>
+		<rect width="17.5" height="7.5" x="73.25" y="101.25" rx="2" ry="10" fill="black"/>
+		<rect width="17" height="7" x="73.5" y="101.5" rx="2" ry="10" fill="#f3f3eb"/>
+		<text font-size="5" x="76" y="106.75" fill="black" font-family="Nombre" class="cambiable">10/10</text>
+
+		<text font-size="3" x="11" y="107" fill="black" font-family="Nombre">ARTISTA</text>
+		<text font-size="2" x="11" y="110" fill="black" font-family="Descripcion">Mi nombre real</text>
+	</svg>
+	<input type="text" placeholder="Escribe nuevo nombre" value="Juano, el gato marihuano">
+
+	<input type="text" placeholder="Imagen" value="https://i.etsystatic.com/11944347/r/il/d576cc/5759845341/il_fullxfull.5759845341_ab0j.jpg">
+
+	<input type="text" placeholder="Escribe nuevo texto" value="Criatura legendaria - gato fumón">
+
+	<input type="text" placeholder="Escribe nuevo texto" value="Amenaza, arrolla">
+	<input type="text" placeholder="Escribe nuevo texto" value="Este gato ultrafumón es capaz de fumarse al">
+	<input type="text" placeholder="Escribe nuevo texto" value="rival y a NICOL BOLAS en cuestión de">
+	<input type="text" placeholder="Escribe nuevo texto" value="segundos.">
+
+	<input type="text" placeholder="Escribe nuevo texto" value="10/10">
+
+	<script>
+		let cambiable = document.getElementsByClassName("cambiable");
+		let inputs = document.getElementsByTagName("input");
+
+		const max = Math.min(cambiable.length, inputs.length);
+	  
+		for (let i = 0; i < max; i++) {
+		  inputs[i].addEventListener("input", () => {
+				cambiable[i].textContent = inputs[i].value;
+			});
+		}
+	  </script>
+</body>
+</html>

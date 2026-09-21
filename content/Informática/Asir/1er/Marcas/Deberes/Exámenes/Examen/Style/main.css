@@ -1,0 +1,25 @@
+@font-face {
+	font-family: Steampunk;
+	src: url("../Fonts/JackOfGears-YzD1v.ttf") format('truetype');
+}
+
+.fuente1 {
+    font-family: Steampunk;
+}
+
+.image-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.image-panel img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.image-panel img:hover {
+    transform: scale(1.03);
+}

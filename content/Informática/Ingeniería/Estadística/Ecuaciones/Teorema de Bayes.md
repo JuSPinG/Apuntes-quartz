@@ -1,0 +1,1 @@
+$$P(A)=\sum^n_{i=1}P(B_i)\cdot P(A\mid B_i)$$

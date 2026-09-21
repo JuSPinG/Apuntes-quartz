@@ -1,0 +1,487 @@
+/*-- Generales --*/
+
+:root {
+    --RMAIN: 188;
+    --GMAIN: 158;
+    --BMAIN: 224;
+
+    --color-resaltado1: rgb(var(--RMAIN), var(--GMAIN), var(--BMAIN));
+    --color-resaltado2: rgb(calc(var(--RMAIN)/2.35), calc(var(--GMAIN)/2.63), calc(var(--BMAIN)/1.75)); /*503c80*/
+    --color-fondo1: rgb(calc(var(--RMAIN)/7.52), 0, calc(var(--BMAIN)/4.48)); /*rgb(25, 0, 50);*/
+    --color-fondo2: rgb(calc(var(--RMAIN)/2.69), calc(var(--GMAIN)/2.78), calc(var(--BMAIN)/2.13)); /*rgb(70, 55, 105);*/
+    --color-fondo3: rgb(calc(var(--RMAIN)/20.89), calc(var(--GMAIN)/30.6), calc(var(--BMAIN)/11.79)); /*rgb(9, 5, 19);*/
+    --color-texto-base: rgb(calc((var(--RMAIN)*0.78) + 200), calc((var(--GMAIN)*0.78) + 200), calc((var(--BMAIN)*0.78) + 200)); /*#e8e8e8;*/
+    --color-titulo: #ffffff;
+    --interespaciado-textual: 150%;
+    --redondeado-imagen: 2%;
+}
+
+/*-- Fuentes --*/
+
+@font-face {
+    font-family: "Fira Sans Bold";
+    src: url("../fonts/FiraSans-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    src: url("../fonts/FiraSans-Regular.ttf");
+}
+
+/*-- Animaciones --*/
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Sale hacia la derecha */
+    }
+}
+
+@keyframes RMAIN {
+    0% { --RMAIN: 0.0 }
+    1% { --RMAIN: 2.55 }
+    2% { --RMAIN: 5.1 }
+    3% { --RMAIN: 7.65 }
+    4% { --RMAIN: 10.2 }
+    5% { --RMAIN: 12.75 }
+    6% { --RMAIN: 15.3 }
+    7% { --RMAIN: 17.85 }
+    8% { --RMAIN: 20.4 }
+    9% { --RMAIN: 22.95 }
+    10% { --RMAIN: 25.5 }
+    11% { --RMAIN: 28.05 }
+    12% { --RMAIN: 30.6 }
+    13% { --RMAIN: 33.15 }
+    14% { --RMAIN: 35.7 }
+    15% { --RMAIN: 38.25 }
+    16% { --RMAIN: 40.8 }
+    17% { --RMAIN: 43.35 }
+    18% { --RMAIN: 45.9 }
+    19% { --RMAIN: 48.45 }
+    20% { --RMAIN: 51.0 }
+    21% { --RMAIN: 53.55 }
+    22% { --RMAIN: 56.1 }
+    23% { --RMAIN: 58.65 }
+    24% { --RMAIN: 61.2 }
+    25% { --RMAIN: 63.75 }
+    26% { --RMAIN: 66.3 }
+    27% { --RMAIN: 68.85 }
+    28% { --RMAIN: 71.4 }
+    29% { --RMAIN: 73.95 }
+    30% { --RMAIN: 76.5 }
+    31% { --RMAIN: 79.05 }
+    32% { --RMAIN: 81.6 }
+    33% { --RMAIN: 84.15 }
+    34% { --RMAIN: 86.7 }
+    35% { --RMAIN: 89.25 }
+    36% { --RMAIN: 91.8 }
+    37% { --RMAIN: 94.35 }
+    38% { --RMAIN: 96.9 }
+    39% { --RMAIN: 99.45 }
+    40% { --RMAIN: 102.0 }
+    41% { --RMAIN: 104.55 }
+    42% { --RMAIN: 107.1 }
+    43% { --RMAIN: 109.65 }
+    44% { --RMAIN: 112.2 }
+    45% { --RMAIN: 114.75 }
+    46% { --RMAIN: 117.3 }
+    47% { --RMAIN: 119.85 }
+    48% { --RMAIN: 122.4 }
+    49% { --RMAIN: 124.95 }
+    50% { --RMAIN: 127.5 }
+    51% { --RMAIN: 130.05 }
+    52% { --RMAIN: 132.6 }
+    53% { --RMAIN: 135.15 }
+    54% { --RMAIN: 137.7 }
+    55% { --RMAIN: 140.25 }
+    56% { --RMAIN: 142.8 }
+    57% { --RMAIN: 145.35 }
+    58% { --RMAIN: 147.9 }
+    59% { --RMAIN: 150.45 }
+    60% { --RMAIN: 153.0 }
+    61% { --RMAIN: 155.55 }
+    62% { --RMAIN: 158.1 }
+    63% { --RMAIN: 160.65 }
+    64% { --RMAIN: 163.2 }
+    65% { --RMAIN: 165.75 }
+    66% { --RMAIN: 168.3 }
+    67% { --RMAIN: 170.85 }
+    68% { --RMAIN: 173.4 }
+    69% { --RMAIN: 175.95 }
+    70% { --RMAIN: 178.5 }
+    71% { --RMAIN: 181.05 }
+    72% { --RMAIN: 183.6 }
+    73% { --RMAIN: 186.15 }
+    74% { --RMAIN: 188.7 }
+    75% { --RMAIN: 191.25 }
+    76% { --RMAIN: 193.8 }
+    77% { --RMAIN: 196.35 }
+    78% { --RMAIN: 198.9 }
+    79% { --RMAIN: 201.45 }
+    80% { --RMAIN: 204.0 }
+    81% { --RMAIN: 206.55 }
+    82% { --RMAIN: 209.1 }
+    83% { --RMAIN: 211.65 }
+    84% { --RMAIN: 214.2 }
+    85% { --RMAIN: 216.75 }
+    86% { --RMAIN: 219.3 }
+    87% { --RMAIN: 221.85 }
+    88% { --RMAIN: 224.4 }
+    89% { --RMAIN: 226.95 }
+    90% { --RMAIN: 229.5 }
+    91% { --RMAIN: 232.05 }
+    92% { --RMAIN: 234.6 }
+    93% { --RMAIN: 237.15 }
+    94% { --RMAIN: 239.7 }
+    95% { --RMAIN: 242.25 }
+    96% { --RMAIN: 244.8 }
+    97% { --RMAIN: 247.35 }
+    98% { --RMAIN: 249.9 }
+    99% { --RMAIN: 252.45 }
+    100% { --RMAIN: 255.0 }
+}
+
+@keyframes GMAIN {
+    0% { --GMAIN: 0.0 }
+    1% { --GMAIN: 2.55 }
+    2% { --GMAIN: 5.1 }
+    3% { --GMAIN: 7.65 }
+    4% { --GMAIN: 10.2 }
+    5% { --GMAIN: 12.75 }
+    6% { --GMAIN: 15.3 }
+    7% { --GMAIN: 17.85 }
+    8% { --GMAIN: 20.4 }
+    9% { --GMAIN: 22.95 }
+    10% { --GMAIN: 25.5 }
+    11% { --GMAIN: 28.05 }
+    12% { --GMAIN: 30.6 }
+    13% { --GMAIN: 33.15 }
+    14% { --GMAIN: 35.7 }
+    15% { --GMAIN: 38.25 }
+    16% { --GMAIN: 40.8 }
+    17% { --GMAIN: 43.35 }
+    18% { --GMAIN: 45.9 }
+    19% { --GMAIN: 48.45 }
+    20% { --GMAIN: 51.0 }
+    21% { --GMAIN: 53.55 }
+    22% { --GMAIN: 56.1 }
+    23% { --GMAIN: 58.65 }
+    24% { --GMAIN: 61.2 }
+    25% { --GMAIN: 63.75 }
+    26% { --GMAIN: 66.3 }
+    27% { --GMAIN: 68.85 }
+    28% { --GMAIN: 71.4 }
+    29% { --GMAIN: 73.95 }
+    30% { --GMAIN: 76.5 }
+    31% { --GMAIN: 79.05 }
+    32% { --GMAIN: 81.6 }
+    33% { --GMAIN: 84.15 }
+    34% { --GMAIN: 86.7 }
+    35% { --GMAIN: 89.25 }
+    36% { --GMAIN: 91.8 }
+    37% { --GMAIN: 94.35 }
+    38% { --GMAIN: 96.9 }
+    39% { --GMAIN: 99.45 }
+    40% { --GMAIN: 102.0 }
+    41% { --GMAIN: 104.55 }
+    42% { --GMAIN: 107.1 }
+    43% { --GMAIN: 109.65 }
+    44% { --GMAIN: 112.2 }
+    45% { --GMAIN: 114.75 }
+    46% { --GMAIN: 117.3 }
+    47% { --GMAIN: 119.85 }
+    48% { --GMAIN: 122.4 }
+    49% { --GMAIN: 124.95 }
+    50% { --GMAIN: 127.5 }
+    51% { --GMAIN: 130.05 }
+    52% { --GMAIN: 132.6 }
+    53% { --GMAIN: 135.15 }
+    54% { --GMAIN: 137.7 }
+    55% { --GMAIN: 140.25 }
+    56% { --GMAIN: 142.8 }
+    57% { --GMAIN: 145.35 }
+    58% { --GMAIN: 147.9 }
+    59% { --GMAIN: 150.45 }
+    60% { --GMAIN: 153.0 }
+    61% { --GMAIN: 155.55 }
+    62% { --GMAIN: 158.1 }
+    63% { --GMAIN: 160.65 }
+    64% { --GMAIN: 163.2 }
+    65% { --GMAIN: 165.75 }
+    66% { --GMAIN: 168.3 }
+    67% { --GMAIN: 170.85 }
+    68% { --GMAIN: 173.4 }
+    69% { --GMAIN: 175.95 }
+    70% { --GMAIN: 178.5 }
+    71% { --GMAIN: 181.05 }
+    72% { --GMAIN: 183.6 }
+    73% { --GMAIN: 186.15 }
+    74% { --GMAIN: 188.7 }
+    75% { --GMAIN: 191.25 }
+    76% { --GMAIN: 193.8 }
+    77% { --GMAIN: 196.35 }
+    78% { --GMAIN: 198.9 }
+    79% { --GMAIN: 201.45 }
+    80% { --GMAIN: 204.0 }
+    81% { --GMAIN: 206.55 }
+    82% { --GMAIN: 209.1 }
+    83% { --GMAIN: 211.65 }
+    84% { --GMAIN: 214.2 }
+    85% { --GMAIN: 216.75 }
+    86% { --GMAIN: 219.3 }
+    87% { --GMAIN: 221.85 }
+    88% { --GMAIN: 224.4 }
+    89% { --GMAIN: 226.95 }
+    90% { --GMAIN: 229.5 }
+    91% { --GMAIN: 232.05 }
+    92% { --GMAIN: 234.6 }
+    93% { --GMAIN: 237.15 }
+    94% { --GMAIN: 239.7 }
+    95% { --GMAIN: 242.25 }
+    96% { --GMAIN: 244.8 }
+    97% { --GMAIN: 247.35 }
+    98% { --GMAIN: 249.9 }
+    99% { --GMAIN: 252.45 }
+    100% { --GMAIN: 255.0 }
+}
+
+@keyframes BMAIN {
+    0% { --BMAIN: 0.0 }
+    1% { --BMAIN: 2.55 }
+    2% { --BMAIN: 5.1 }
+    3% { --BMAIN: 7.65 }
+    4% { --BMAIN: 10.2 }
+    5% { --BMAIN: 12.75 }
+    6% { --BMAIN: 15.3 }
+    7% { --BMAIN: 17.85 }
+    8% { --BMAIN: 20.4 }
+    9% { --BMAIN: 22.95 }
+    10% { --BMAIN: 25.5 }
+    11% { --BMAIN: 28.05 }
+    12% { --BMAIN: 30.6 }
+    13% { --BMAIN: 33.15 }
+    14% { --BMAIN: 35.7 }
+    15% { --BMAIN: 38.25 }
+    16% { --BMAIN: 40.8 }
+    17% { --BMAIN: 43.35 }
+    18% { --BMAIN: 45.9 }
+    19% { --BMAIN: 48.45 }
+    20% { --BMAIN: 51.0 }
+    21% { --BMAIN: 53.55 }
+    22% { --BMAIN: 56.1 }
+    23% { --BMAIN: 58.65 }
+    24% { --BMAIN: 61.2 }
+    25% { --BMAIN: 63.75 }
+    26% { --BMAIN: 66.3 }
+    27% { --BMAIN: 68.85 }
+    28% { --BMAIN: 71.4 }
+    29% { --BMAIN: 73.95 }
+    30% { --BMAIN: 76.5 }
+    31% { --BMAIN: 79.05 }
+    32% { --BMAIN: 81.6 }
+    33% { --BMAIN: 84.15 }
+    34% { --BMAIN: 86.7 }
+    35% { --BMAIN: 89.25 }
+    36% { --BMAIN: 91.8 }
+    37% { --BMAIN: 94.35 }
+    38% { --BMAIN: 96.9 }
+    39% { --BMAIN: 99.45 }
+    40% { --BMAIN: 102.0 }
+    41% { --BMAIN: 104.55 }
+    42% { --BMAIN: 107.1 }
+    43% { --BMAIN: 109.65 }
+    44% { --BMAIN: 112.2 }
+    45% { --BMAIN: 114.75 }
+    46% { --BMAIN: 117.3 }
+    47% { --BMAIN: 119.85 }
+    48% { --BMAIN: 122.4 }
+    49% { --BMAIN: 124.95 }
+    50% { --BMAIN: 127.5 }
+    51% { --BMAIN: 130.05 }
+    52% { --BMAIN: 132.6 }
+    53% { --BMAIN: 135.15 }
+    54% { --BMAIN: 137.7 }
+    55% { --BMAIN: 140.25 }
+    56% { --BMAIN: 142.8 }
+    57% { --BMAIN: 145.35 }
+    58% { --BMAIN: 147.9 }
+    59% { --BMAIN: 150.45 }
+    60% { --BMAIN: 153.0 }
+    61% { --BMAIN: 155.55 }
+    62% { --BMAIN: 158.1 }
+    63% { --BMAIN: 160.65 }
+    64% { --BMAIN: 163.2 }
+    65% { --BMAIN: 165.75 }
+    66% { --BMAIN: 168.3 }
+    67% { --BMAIN: 170.85 }
+    68% { --BMAIN: 173.4 }
+    69% { --BMAIN: 175.95 }
+    70% { --BMAIN: 178.5 }
+    71% { --BMAIN: 181.05 }
+    72% { --BMAIN: 183.6 }
+    73% { --BMAIN: 186.15 }
+    74% { --BMAIN: 188.7 }
+    75% { --BMAIN: 191.25 }
+    76% { --BMAIN: 193.8 }
+    77% { --BMAIN: 196.35 }
+    78% { --BMAIN: 198.9 }
+    79% { --BMAIN: 201.45 }
+    80% { --BMAIN: 204.0 }
+    81% { --BMAIN: 206.55 }
+    82% { --BMAIN: 209.1 }
+    83% { --BMAIN: 211.65 }
+    84% { --BMAIN: 214.2 }
+    85% { --BMAIN: 216.75 }
+    86% { --BMAIN: 219.3 }
+    87% { --BMAIN: 221.85 }
+    88% { --BMAIN: 224.4 }
+    89% { --BMAIN: 226.95 }
+    90% { --BMAIN: 229.5 }
+    91% { --BMAIN: 232.05 }
+    92% { --BMAIN: 234.6 }
+    93% { --BMAIN: 237.15 }
+    94% { --BMAIN: 239.7 }
+    95% { --BMAIN: 242.25 }
+    96% { --BMAIN: 244.8 }
+    97% { --BMAIN: 247.35 }
+    98% { --BMAIN: 249.9 }
+    99% { --BMAIN: 252.45 }
+    100% { --BMAIN: 255.0 }
+}
+
+html, body {
+    margin: 0;
+    color: var(--color-texto-base);
+    font-family: "Fira Sans";
+    height: 100%; /* Asegura que los padres tengan altura completa */
+    animation: RMAIN 6s infinite alternate, GMAIN 8s infinite alternate, BMAIN 10s infinite alternate;
+}
+
+.content {
+    margin-left: 20%;
+    width: 80%;
+    padding-left: 2%;
+    padding-right: 5%;
+    padding-top: 20px;
+    min-height: 100vh; /* Altura mínima del viewport [[7]] */
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho/alto [[7]] */
+
+    background:
+        linear-gradient(0deg, var(--color-fondo1), transparent),
+        linear-gradient(270deg, var(--color-fondo1), var(--color-fondo2));
+        
+
+    overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-titulo);
+    font-family: "Fira Sans Bold";
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-resaltado1);
+    transition: color 500ms;
+}
+
+button {
+    color: var(--color-resaltado1);
+    transition: color 500ms, background-color 500ms;
+    font-size: 100%;
+    text-align: left;
+}
+
+a:hover, button:hover {
+    text-decoration: underline;
+    color: var(--color-titulo);
+    background-color: var(--color-resaltado2) !important;
+}
+
+img {
+    margin: 2ch;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--redondeado-imagen);
+    max-width: 1000px;
+    max-height: 500px;
+}
+
+footer {
+    padding: 10px;
+    background: linear-gradient(0deg, var(--color-fondo2), transparent);
+}
+
+td {
+    text-align: center;
+}
+
+.quote {
+    border: 5px solid var(--color-resaltado2);
+    border-radius: 5px;
+    padding: 2%;
+    margin-bottom: 10px;
+    line-height: 150%;
+}
+
+.quote span {
+    font-size: large;
+    text-decoration: underline;
+}
+
+.sidebar {
+    position: fixed; /* Mantiene el sidebar visible siempre */
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    background:
+        linear-gradient(180deg, transparent, var(--color-fondo1)),
+        linear-gradient(270deg, var(--color-fondo2), var(--color-fondo1));
+
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
+}
+  
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+  
+.sidebar ul li {
+    margin: 15px 0;
+    border: 4px solid var(--color-fondo2);
+    border-radius: 10px;
+}
+
+.sidebar ul li button {
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+}
+
+#seleccionado {
+    background-color: var(--color-resaltado2);
+}

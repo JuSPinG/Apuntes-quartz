@@ -1,0 +1,1 @@
+$$\frac{\bar X-\mu}{\sigma/\sqrt{n}}=\sqrt{n}\frac{\bar X-\mu}{\sigma}$$

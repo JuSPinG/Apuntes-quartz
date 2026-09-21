@@ -1,0 +1,1 @@
+$$f_n(t)=\frac{1}{\sqrt{n\pi}}\frac{\Gamma(\frac{n+1}{2})}{\Gamma(\frac{n}{2})}\left(1+\frac{t^2}{n}\right)^{-(n+1)/2}$$

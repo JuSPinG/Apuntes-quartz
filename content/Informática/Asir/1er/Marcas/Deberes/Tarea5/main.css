@@ -1,0 +1,48 @@
+@font-face {
+	font-family: "Moms Typewritter";
+	src: url("Fonts/Moms\ Typewritter.ttf");
+}
+
+@font-face {
+	font-family: "Sueño";
+	src: url(Fonts/Shoguns\ Clan.ttf);
+}
+
+@keyframes rotacion {
+	0% {
+		rotate: 10deg;
+	}
+
+	50% {
+		rotate: -5deg;
+	}
+
+	100% {
+		rotate: 10deg;
+	}
+}
+
+.movimiento {
+	animation: rotacion 10s infinite;
+}
+
+body {
+	background-color: beige;
+	font-family: "Moms Typewritter"
+}
+
+h1 {
+	text-align: center;
+}
+
+img {
+	display: block;
+	margin: auto;
+	width: 500px;
+	border-radius: 2%;
+}
+
+.fuente-alternativa {
+	font-family: "Sueño";
+	font-size: 200%;
+}

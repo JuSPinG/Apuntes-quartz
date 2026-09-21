@@ -1,0 +1,1 @@
+$$\sigma^2_X=E\{(X-E\{X\})^2\}=\int^{\infty}_{-\infty}\int^{\infty}_{-\infty}(X-E\{X\})^2\cdot f(x, y)\ dy\ dx=\int^{\infty}_{-\infty}(X-E\{X\})^2\cdot f_X(x)\ dx$$

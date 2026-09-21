@@ -1,0 +1,1 @@
+$$\left(\bar{x}-z_\alpha\frac{\sigma}{\sqrt{n}},\bar{x}+z_\alpha\frac{\sigma}{\sqrt{n}}\right)\rightarrow P(-z_\alpha<Z<z_\alpha)=\alpha$$

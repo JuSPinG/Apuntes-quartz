@@ -1,0 +1,13 @@
+- Ve al paquete 100, fija la referencia temporal en dicho paquete, ve al paquete 200 y observa cuánto tiempo ha transcurrido entre uno y otro.
+  - ![alt text](Conocimiento/Asir/Redes/Deberes/Tarea4/image.png)
+  - Han pasado 4.710223 segundos desde entonces.
+- Aplica un filtro en que se seleccionen solamente los paquetes UDP.
+  - ![alt text](image-1.png)la
+- Aplica un filtro en que se seleccionen todas la tramas que tengan como dirección MAC de origen la de  trama 10.
+  - ![alt text](image-2.png)
+  - ![alt text](image-6.png)
+- Ve al menú de estadísticas y apunta cuántas conversaciones TCP ha habido en la captura.
+  - ![alt text](image-4.png)
+- ¿Cuántos paquetes TCP ha habido en la captura?
+  - ![alt text](image-5.png)
+  - 431 paquetes.

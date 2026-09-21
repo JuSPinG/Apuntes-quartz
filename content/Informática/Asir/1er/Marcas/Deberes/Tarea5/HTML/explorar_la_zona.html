@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Explorar la zona</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Día 0, 15:00 -- Otra pelea más</h1>
+    <p>Aquí está todo muy oscuro y hay bastantes ratas. Investigando un poco más, me encuentro otro cadaver, al acercarme, un hombre sale de detrás de una columna: llorando, nervioso y empuñando un cuchillo, se abalanza hacia mí acuchillándome de muerte.</p>
+    <p>Has muerto, <a href="../main.html">empezar otra partida</a>.</p>
+    <img src="../Img/3.png">
+
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/Blood for sex.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+    
+</body>
+</html>

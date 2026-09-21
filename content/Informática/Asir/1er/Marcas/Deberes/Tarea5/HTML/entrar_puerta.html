@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>¡Menudo festín!</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Día 1, 11:25 -- ¡Menudo festín!</h1>
+    <p>Entré por la puerta con el mayor sigilo posible, afortunadamente nadie me oyó. En el suelo, había un cuchillo, lo cogí. Ante mí, se extendía un pasillo con puertas a los lados, puse el oído en la primera puerta, y cuando escuché los pasos de un hombre, pegué un portazo. Le dí en toda la cara y se cayó al suelo. Me di cuenta de que estaba armado con un AK-47, ¿Qué debería de hacer?</p>
+    <ul>
+		<li><a href="matar.html">Acabar con el hombre para que no me dispare</a>.</li>
+		<li><a href="huir.html">Huír al pasillo</a>.</li>
+	</ul>
+    <img src="../Img/11.jpg">
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/Fahkeet.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+</body>
+</html>

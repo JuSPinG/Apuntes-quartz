@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Amenazarle</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Día 0, 15:38 -- Fin del trayecto</h1>
+    <p>Me he colocado detrás de su asiento y con mis manos he rodeado su cueyo. Si se resiste, empezaré a estrangularle. Le he dicho que no tengo dinero para pagarle y que abra la puerta y me deje ir. Ha aceptado y me ha dicho que es la última vez que recoge a un indigente como yo, y que más vale que corriese porque llamaría a la policía.</p>
+    <p>Perfecto, no llamé a la ambulancia para la que la policía no se metiese en mis asuntos, y ahora lo va a hacer igualmente. No debí de haberle amenazado, además, se le veía buen hombre. Una pena.</p>
+    <ul>
+        <li><a href="estrangular.html">Le estrangularé hasta dejarle inconsciente</a>.</li>
+        <li><a href="pedir_perdon.html">Pediré perdón, daré las gracias, y me iré</a>.</li>
+    </ul>
+    <img src="../Img/5.png">
+
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/Air Raid.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+</body>
+</html>

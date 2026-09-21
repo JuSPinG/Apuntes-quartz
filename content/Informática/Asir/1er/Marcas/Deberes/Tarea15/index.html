@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Candado Salesiano</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='style/main.css'>
+    <script type="module" src='scripts/main.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body style="background-image: url(img/Fondo.png);">
+
+    <h1 class="centrado" style="font-family: Cake;">La Salle (🌟🌟)</h1>
+    <div>
+        <br>
+        <div style="margin-left: 5%; font-family: Army;">
+            <p>Ey chaval, me he peratado de que quieres entrar a este sitio</p>
+            <p>Ingresa la contraseña</p>
+        </div>
+        <br>
+
+        <div style="display: grid; place-items: center; size: 100%;">
+            <form id="formulario">
+                <div class="input-group mb-3 input-group-lg">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="password" type="password" class="form-control" name="password" placeholder="Contraseña">
+                </div>
+            </form>
+            <button type="button" class="btn btn-primary" id="botón">Enviar</button>
+        </div>
+
+        <div>
+            <br>
+            <br>
+            <h1 class="centrado" style="font-size: 1500%;" id="emoticono">🤨</h1>
+        </div>
+
+        <script>
+
+            var contador = 0;
+
+            function createMD5(text) {
+                return CryptoJS.MD5(text).toString();
+            }
+
+            function formulario(event) {
+                event.preventDefault();
+                const textoIngresado = document.getElementById("password").value;
+                const hash = createMD5(textoIngresado);
+
+                if (hash == "1d3eaac8b03813430daa62b5fbfd744d") {
+                    console.log("Contraseña correcta");
+                    document.getElementById("emoticono").textContent = '🥳';
+                } else {
+                    console.log("Contraseña incorrecta");
+
+                    contador++;
+                    var emoticono = '';
+
+                    switch (contador) {
+                        case 1:
+                            emoticono = '😬';
+                            break;
+                        case 2:
+                            emoticono = '😠';
+                            break;
+                        case 3:
+                            emoticono = '😤';
+                            break;
+                        case 4:
+                            emoticono = '😡';
+                            break;
+                        case 5:
+                            emoticono = '🤬';
+                            break;
+                        case 6:
+                            emoticono = '😈';
+                            break;
+                        case 7:
+                            emoticono = '👿';
+                            break;
+                        case 8:
+                            emoticono = '👹';
+                            break;
+                        default:
+                            emoticono = 'MAL';
+                    }
+
+                    document.getElementById("emoticono").textContent = emoticono;
+                }
+            }
+
+            document.getElementById("botón").addEventListener("click", function(event) {
+                formulario(event)
+            });
+
+            document.getElementById("formulario").addEventListener("submit", function(event) {
+                formulario(event)
+            });
+            
+        </script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+- Señal triangular con fondo amarillo y borde negro: Peligro.
+- Señal circular con fondo blanco con borde y diagonal rojos: Prohibición.
+- Señal circular con fondo azul y borde blanco: Obligación.

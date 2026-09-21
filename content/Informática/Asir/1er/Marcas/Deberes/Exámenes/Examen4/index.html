@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Examen de marcas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style/my.css'>
+    <script src='scripts/main.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function botonazo() {
+            Swal.fire({
+                title: "Saliendo de la página",
+                icon: "warning"
+            });
+        }
+    </script>
+</head>
+<body style="background-color: #2da604;">
+    <div class="content">
+        <h1>Floating goldfinch</h1>
+        <p>Este es un texto de ejemplo</p>
+        <form action="resultado.html" method="get">
+            <div>
+                <label for="Name">Name</label>
+                <input type="text" name="nombre1" id="">
+            </div>
+            <div>
+                <label for="Name">Name</label>
+                <input type="text" name="nombre2" id="">
+            </div>
+            <div style="display: flex;">
+                <div style="width: 66%;">
+                    <label for="Name">Name</label>
+                    <input type="text" name="nombre3" id="">
+                </div>
+                <div style="width: 34%; margin-left: 15px;">
+                    <label for="Name">Name</label>
+                    <input type="text" name="nombre4" id="">
+                </div>
+            </div>
+            <div>
+                <label for="Date">Date</label>
+                <input type="date" name="fecha1" id="">
+            </div>
+            <div>
+                <label for="Date">Date</label>
+                <input type="date" name="fecha2" id="">
+            </div>
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <button><span>A</span> Search engine</button>
+                    </td>
+                    <td>
+                        <img src="mapa.png" alt="Mapa?" height="200">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button><span>B</span> Social media</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button><span>C</span> Other website</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button><span>D</span> Word of month</button>
+                    </td>
+                    <td>
+                        <p>Recomendarías nuestro servicio?</p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <p>Esta es una lista avanzada de botones</p>
+                <div style="display: flex;">
+                    <button class="botonEspecial">1</button>
+                    <button class="botonEspecial">2</button>
+                    <button class="botonEspecial" style="background-color: black;" onclick="botonazo()" id="boton">3</button>
+                    <button class="botonEspecial">4</button>
+                    <button class="botonEspecial">5</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

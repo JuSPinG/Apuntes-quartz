@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Intérprete Markdown</title>
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js "></script>
+	<script src="../scripts/main.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="../styles/main.css">
+</head>
+<body>
+	<div class="sidebar">
+		<h2>Menú</h2>
+		<ul>
+			<li><button onclick="window.location.href='../main.html'">Inicio</button></li>
+			<li><button onclick="window.location.href='d1.html'">Día 1</button>
+			<li><button onclick="window.location.href='d2.html'">Día 2</button></li>
+			<li id="seleccionado"><button onclick="window.location.href='#'">Día 3</button></li>
+		</ul>
+	</div>
+	<div class="content">
+        <div  class="quote" style="animation: fadeIn 1s ease-out forwards">
+            <span>Ismael</span>
+            <p>Realizar base de datos en formato sqlite, ya que la base de datos proporcionada por FreeCiv es otro tipo.</p>
+            <p>He desconectado el cable del router y la he vuelto a conectar a la red de la clase para comprobar si los ordenadores de fuera pueden conectarse.</p>
+            <p>He entrado al FreeCiv desde otra máquina virtual recien instalada de debian y he puesto la ip del router a través de un puerto específico para poder entrar al servidor, después de que Alberto abriese el puerto del router y lo redirigiera a la ip del server.</p>
+            <p>Cambiar enlaces "a" en el css por botones para que al seleccionar una parte del botón lleve a la página sin necesidad de darle al texto.</p>
+            <time></time>
+        </div>
+        <div  class="quote" style="animation: fadeIn 1.25s ease-out forwards">
+            <span>Marcos</span>
+            <p>Ha dado algunos retoques en la página web, y ha estado ayudando a compañeros fuera del grupo.</p>
+            <p>Junto con Ismael, ha estado creando la base de datos en sqlie, encontramos la base de datos de FreeCiv, pero no estaba en formato sqlite.</p>
+            <time></time>
+        </div>
+        <div  class="quote" style="animation: fadeIn 1.5s ease-out forwards">
+            <span>Elena</span>
+            <p></p>
+            <time></time>
+        </div>
+        <div  class="quote" style="animation: fadeIn 1.75s ease-out forwards">
+            <span>Alberto</span>
+            <p>He abierto un puerto del router para cada juego asignándole la ip del servidor para que los ordenadores exteriores puedan entrar al juego a través de la ip del router.</p>
+            <time></time>
+        </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+$$\frac{ns^2}{\sigma^2}=\frac{1}{\sigma^2}\sum^{n}_{i=1}(X_i-\bar{X})^2$$

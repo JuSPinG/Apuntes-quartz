@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Título</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style/main.css'>
+    <script src='../main.js'></script>
+    <script>
+
+        function CargarDatos() {
+            setValue("NombreS", getValue("nombre"));
+            setValue("ContrasennaS", getValue("contrasenna"));
+
+            let contador = getValue("contador");
+            contador++;
+            setValue("ContadorI", contador);
+        }
+
+    </script>
+</head>
+<body onload="CargarDatos()">
+    <form action="pag2.html" method="get">
+        <div>
+            <label>Nombre</label>
+            <input type="text" name="NombreS" readonly>
+        </div>
+        <div>
+            <label>Contraseña</label>
+            <input type="password" name="ContrasennaS" readonly>
+        </div>
+        <div>
+            <label>Nº Lista</label>
+            <input type="number" name="nlista">
+        </div>
+        <div>
+            <label>Día</label>
+            <input type="date" name="dia">
+        </div>
+        <div>
+            <label>Contador+1</label>
+            <input type="number" name="ContadorI" readonly>
+        </div>
+        <div>
+            <label>Contador+2</label>
+            <input type="number" name="contador2">
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
