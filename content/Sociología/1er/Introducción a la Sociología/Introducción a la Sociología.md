@@ -9,3 +9,5 @@ Profesorado: Juan Morales
 	2. [[1.2 Procesos psicosociales de la internalización de lo otro. George H. Mead|Procesos psicosociales de la internalización de lo otro. George H. Mead]]].
 	3. [[1.3 La vida social como representación. Erving Goffman|La vida social como representación. Erving Goffman]].
 	4. [[1.4 De Berger y Luckmann a Mead y Goffman|De Berger y Luckmann a Mead y Goffman]].
+	5. [[1.5 La sociedad como interacción y los lazos sociales. George Simmel|La sociedad como interacción y los lazos sociales. George Simmel]].
+2. ¿Qué es la sociología?

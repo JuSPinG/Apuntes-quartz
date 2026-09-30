@@ -10,4 +10,6 @@ Profesorado:
 	1. [[0.1 Presentación de Introducción a la Psicología Social|Introducción a la Psicología Social]].
 1. La Psicología Social como perspectiva.
 	1. [[1.1 Definición de la psicología social|Definición de la psicología social]].
-	2. [[1.2 La Psicología Social como rama|La Psicología Social como]].
+	2. [[1.2 La Psicología Social como rama|La Psicología Social como rama]].
+2. Diseños correlacionales.
+	1. [[2.1 Diseños correlacionales]].
