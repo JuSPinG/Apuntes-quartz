@@ -1,0 +1,30 @@
+C. Demografía y Población
+Migraciones
+Inmigración y emigración
+5.1.4.B. Altas por cambio de residencia (Inmigración) procedentes de la Comunidad de Madrid por Municipio de procedencia según Distrito de destino
+;;10. Latina
+1988;No consta;0
+1989;No consta;0
+1990;No consta;0
+2003;No consta;0
+2004;No consta;0
+2005;No consta;0
+2006;No consta;3
+2007;No consta;0
+2008;No consta;5
+2009;No consta;6
+2010;No consta;0
+2011;No consta;0
+2012;No consta;0
+2013;No consta;0
+2014;No consta;0
+2015;No consta;0
+2016;No consta;0
+2017;No consta;0
+2018;No consta;0
+2019;No consta;0
+2020;No consta;0
+2021;No consta;0
+;
+;
+Fuente: Ayuntamiento de Madrid. Subdirección General de Estadística. Padrón Municipal de Habitantes

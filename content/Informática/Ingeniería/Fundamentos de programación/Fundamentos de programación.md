@@ -1,5 +1,7 @@
 ---
-Autor: " José Antonio Cerrada Somolinos y Manuel E. Collado Machuca"
+Autor:
+  - José Antonio Cerrada Somolinos
+  - Manuel E. Collado Machuca
 ---
 
 - [ ] Introducción a la programación.

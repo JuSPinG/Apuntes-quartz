@@ -5,12 +5,13 @@ Profesorado:
 0. Presentación.
 	1. [[0.1 Presentación de Economía Política I|Presentación de Economía Política]].
 1. Concepto y método de la economía.
-	1. La economía como ciencia social.
-	2. Breve introducción de la Historia económica.
-	3. Conceptos básicos de la actividad económica: agentes económicos, consumo y factores de producción.
-	4. Problemas económicos fundamentales.
-	5. La técnica, la frontera de posibilidades de producción y el coste de oportunidad.
-	6. El surgimiento de la Macro y la Microeconomía.
+	1. [[1.1 La economía como ciencia social|La economía como ciencia social]].
+	2. [[1.2 Institucionalismo americano en la economía|Institucionalismo americano en la economía]].
+	3. Breve introducción de la Historia económica.
+	4. Conceptos básicos de la actividad económica: agentes económicos, consumo y factores de producción.
+	5. Problemas económicos fundamentales.
+	6. La técnica, la frontera de posibilidades de producción y el coste de oportunidad.
+	7. El surgimiento de la Macro y la Microeconomía.
 2. El sistema de economía de mercado: La oferta y la demanda.
 	1. El funcionamiento del mercado y la competencia.
 	2. Características del análisis microeconómico: mercados y precios.
