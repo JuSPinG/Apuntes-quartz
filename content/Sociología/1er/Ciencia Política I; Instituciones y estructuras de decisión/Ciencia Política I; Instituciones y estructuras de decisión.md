@@ -15,7 +15,7 @@ Profesorado:
 3. El Estado liberal.
 	1. [[3.1 El Estado liberal|El Estado liberal]].
 	2. [[3.2 El Estado social|El Estado social]].
-4. Democracia y conceptos relacionados.
+4. [[4.1 Democracia y conceptos relacionados|Democracia y conceptos relacionados]].
 5. Estado Liberal-Democrático.
 6. La distribución territorial del poder: estados unitarios y estados compuestos.
 7. La distribución funcional del poder: ejecutivos, administraciones públicas.

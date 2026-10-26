@@ -13,16 +13,19 @@ Profesorado:
 	6. La técnica, la frontera de posibilidades de producción y el coste de oportunidad.
 	7. El surgimiento de la Macro y la Microeconomía.
 2. El sistema de economía de mercado: La oferta y la demanda.
-	1. El funcionamiento del mercado y la competencia.
-	2. Características del análisis microeconómico: mercados y precios.
-	3. La demanda y sus determinantes.
-	4. La oferta y sus determinantes.
-	5. El equilibrio del mercado. El mercado intervenido: precios máximos y mínimos.
-	6. La demanda de bienes.
-	7. Elasticidades.
-	8. Tipología y organización de la empresa.
-	9. La función de producción: rendimientos decrecientes y rendimientos de escala.
-	10. Los costes de producción.
+	1. [[2.1 Formas de organización económica|Formas de organización económica]].
+	2. [[2.2 Oferta y demanda|Oferta y demanda]].
+	3. [[2.3 La elasticidad en la economía|La elasticidad en la economía]].
+	4. El funcionamiento del mercado y la competencia.
+	5. Características del análisis microeconómico: mercados y precios.
+	6. La demanda y sus determinantes.
+	7. La oferta y sus determinantes.
+	8. El equilibrio del mercado. El mercado intervenido: precios máximos y mínimos.
+	9. La demanda de bienes.
+	10. Elasticidades.
+	11. Tipología y organización de la empresa.
+	12. La función de producción: rendimientos decrecientes y rendimientos de escala.
+	13. Los costes de producción.
 3. Tipos de mercado.
 	1. El mercado y la competencia como reguladores de la actividad económica.
 	2. La competencia perfecta.

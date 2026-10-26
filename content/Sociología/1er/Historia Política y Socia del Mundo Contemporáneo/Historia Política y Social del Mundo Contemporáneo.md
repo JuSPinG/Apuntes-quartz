@@ -5,12 +5,12 @@ Profesorado: Ana Isabel Fernández Asperilla
 	1. [[0.1 Presentación de Historia del Pensamiento Político y Socia del Mundo Contemporáneo|Presentación de Historia del Pensamiento Político y Socia del Mundo Contemporáneo]].
 1. [[1.1 La Revolución americana y el nacimiento de los Estados Unidos|La Revolución americana y el nacimiento de los Estados Unidos]].
 2. La Revolución Francesa de 1789. La Era Napoleónica (1799 - 1814). La revolución haitiana y la supresión de la esclavitud.
-	1. [[2.1 La revolución francesa|La revolución francesa]].
+	1. [[2.1 La Revolución francesa|La Revolución francesa]].
 	2. [[2.2 La era Napoleónica (1799 - 1814)|La era Napoleónica (1799 - 1814)]].
 	3. [[2.3 La revolución de los esclavos de Santo Domingo|La revolución de los esclavos de Santo Domingo]].
 3. [[3.1 La Revolución Española de 1808 y sus consecuencias|La Revolución Española; La invasión francesa y la pérdida del imperio colonial americano (1808- 1833)]].
 4. [[4.1 Reacción, liberalismo y democracia; la Restauración Absolutista|Reacción, liberalismo y democracia: la Restauración Absolutista y los Ciclos Revolucionarios liberales de 1820 y 1830. La revolución democrática de 1848]].
-5. Liberalismo, democracia y republica en España: El Reinado de Isabel II y el Sexenio Democrático (1833- 1874).
+5. [[5.1 El Reinado de Isabel II y el Sexenio Democrático (1833- 1874)|Liberalismo, democracia y república en España; El Reinado de Isabel II y el Sexenio Democrático (1833- 1874)]].
 6. Nacionalismos: Italia y Alemania, el nacimiento de nuevos Estados-Nación en la Europa decimonónica. El Segundo Imperio Francés y la Inglaterra Victoriana, los grandes estados-nación en el siglo XIX.
 7. La Revolución Industrial y el Movimiento Obrero: la Asociación Internacional de Trabajadores (AIT). La Comuna de París y La Segunda Internacional.
 8. La expansión imperialista y potencias coloniales (1870- 1914).
