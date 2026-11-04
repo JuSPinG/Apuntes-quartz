@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Título</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+
+    <h1>Número de la primera carta: <span id="carta1"></span></h1>
+    <h1>Número de la segunda carta: <span id="carta2"></span></h1>
+    <h1>Suma de ambas: <span id="suma"></span></h1>
+    <h1>El jugador ha elegido <span id="plantarse"></span></h1>
+
+
+    <script>
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        let num1 = getRandomInt(1, 13);
+        let num2 = getRandomInt(1, 13);
+
+        let suma = num1 + num2;
+
+        if (num1 >= 10) {
+            suma = 10 + num2;
+            console.log(suma);
+        }
+
+        if (num2 >= 10) {
+            suma = num1 + 10;
+            console.log(suma);
+        }
+
+        if ((num1 >= 10) || (num2 >= 10)) {
+            suma = 20;
+        }
+
+        document.getElementById("carta1").textContent = num1;
+        document.getElementById("carta2").textContent = num2;
+        document.getElementById("suma").textContent = suma;
+
+        while (true) {
+
+            let accion = prompt("Elije una carta más (C), o plantarse (P): ")
+            if (accion.toUpperCase() === "C") {
+                alert("Has elegido la opción de carta más");
+                document.getElementById("plantarse").textContent = "la opción de carta más";
+                break
+            }
+
+            else if (accion.toUpperCase() === "P") {
+                alert("Has elegido la opción de plantarse");
+                document.getElementById("plantarse").textContent = "la opción de plantarse";
+                break
+            }
+            
+            else {
+                alert("Opción no válida");
+            }
+        }
+
+    </script>
+</body>
+</html>

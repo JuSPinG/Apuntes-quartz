@@ -1,0 +1,1 @@
+$$\int^{\infty}_{-\infty}F'(t)\ dt=1$$

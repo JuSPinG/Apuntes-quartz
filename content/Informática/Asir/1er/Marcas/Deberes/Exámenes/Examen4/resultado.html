@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Examen de marcas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style/my.css'>
+    <script src='scripts/main.js'></script>
+</head>
+
+<script>
+
+    function CargarDatos() {
+        setValue("nombre1", getValue("nombre1"));
+        setValue("nombre2", getValue("nombre2"));
+        setValue("nombre3", getValue("nombre3"));
+        setValue("nombre4", getValue("nombre4"));
+        setValue("fecha1", getValue("fecha1"));
+        setValue("fecha2", getValue("fecha1"));
+    }
+
+</script>
+<body style="background-color: #2da604;" onload="CargarDatos()">
+    <div class="content">
+        <h1>Floating goldfinch</h1>
+        <p>Este es un texto de ejemplo</p>
+        <table align="center">
+            <tr>
+                <td><input type="text" name="nombre1" id="nombre1"></td>
+                <td><input type="text" name="nombre2" id="nombre2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="nombre3" id="nombre3"></td>
+                <td><input type="text" name="nombre4" id="nombre4"></td>
+            </tr>
+        </table>
+        <ul>
+            <li>
+                <a href="index.html"><input type="text" name="fecha1" id="fecha1"></a>
+                <a href="index.html"><input type="text" name="fecha2" id="fecha2"></a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

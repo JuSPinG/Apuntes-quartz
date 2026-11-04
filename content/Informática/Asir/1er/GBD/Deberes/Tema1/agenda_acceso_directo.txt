@@ -1,0 +1,5 @@
+Tléfono: 9 carácteres. Todos números, pues un número de teléfono tiene siempre ese formato.
+Nombre: 15 carácteres. Muy rara vez un nombre sobrepasa esas características.
+Apellidos: 35 carácteres. Al ser 2 apellidos, deberían ocupar como 2 nombres, pero a diferencia de estos, muy a menudo contienen espacios y son más largos, por eso he añadido 5 carácteres extra.
+Dirección: 40 carácteres. Normalmente las direcciones suelen ser más grandes y permiten mayor especificación, como portal y letra.
+Ciudad: 20 carácteres. Las ciudades suelen tener nombres cortos o se suelen usar sus acortados, gracias a los términos de economía lingüistica, por lo tanto no debe de ocupar mucho.

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Título</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Día 0, 13:12 -- Llegada de la ambulancia</h1>
+    <p>¿Pero yo soy tonto o qué me pasa? ¿Qué hago llamando a la ambulancia si he dejado claro que era una mala idea? ¿Y con qué dispositivo, si se supone que me han robado? En fin, debe de ser que la paliza ha sido fuerte y me han pegado bastante en la cabeza, porque solo con un mentecato puede haber hecho algo tan tonto. Aunque... Parece que a mi hermano no le han robado... Cojo su móvil y decido llamar.</p>
+    <p>Acaba de llegar la ambulancia... con la policía... me pongo a correr, y me caigo por un precipicio. Lo tengo muy merecido.</p>
+    <p>Has muerto, <a href="../main.html">empezar otra partida</a>.</p>
+    <img src="../Img/4.png">
+
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/Combat Cocktail.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+</body>
+</html>

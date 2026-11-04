@@ -1,0 +1,1 @@
+$$f_{y\mid x}(y)=\left\{\begin{matrix}\frac{f(x, y)}{f_X(x)},&\text{si }f_X(x)>0\\0,&\text{si }f_X(x)=0\\\end{matrix}\right.$$

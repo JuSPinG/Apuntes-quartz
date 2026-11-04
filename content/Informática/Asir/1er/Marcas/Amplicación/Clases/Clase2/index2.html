@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<script>
+
+		function CrearHTML(tipo, texto) {
+			const elemento = document.createElement(tipo);
+			elemento.innerText = texto;
+
+			document.body.appendChild(elemento)
+		}
+		// Crea un elemento
+		const PARRAFO = document.createElement("h1");
+		PARRAFO.innerText = "Esto es un h1";
+
+		// Lo inserta
+		document.body.appendChild(PARRAFO);
+
+		for (let i = 10; i > 0; i--) {
+			let div = document.createElement("div");
+			div.innerText = "Eh aquí el div núemero " + i;
+
+			document.body.appendChild(div);
+		}
+
+		CrearHTML("h2", "No te parece?");
+		CrearHTML("h2", "Hola a todos");
+		CrearHTML("h2", "Hoy hace un buen día");
+		CrearHTML("h3", "No te parece?");
+	</script>
+
+</body>
+</html>

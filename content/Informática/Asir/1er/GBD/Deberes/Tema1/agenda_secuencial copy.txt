@@ -1,0 +1,59 @@
+Tléfono:671217252
+Nombre:Marcos
+Apellidos:Santos Piñeiro
+Dirección:Calle Azor 7
+Ciudad:Madrid
+
+Tléfono:627824115
+Nombre:Ana
+Apellidos:Piñeiro
+Dirección:Calle Azor 7
+Ciudad:Madrid
+
+Tléfono:620717224
+Nombre:Carlos
+Apellidos:Santos Sánchez
+Dirección:Paseo de Extremadura 324B
+Ciudad:Madrid
+
+Tléfono:654321098
+Nombre:Javier
+Apellidos:Milei Perez
+Dirección:Quinta presidencial Los Olivos
+Ciudad:Buenos Aires
+
+Tléfono:678901234
+Nombre:Federico
+Apellidos:Jimenez Los Santos
+Dirección:Paseo del Libertador
+Ciudad:Madrid
+
+Tléfono:685719023
+Nombre:Pepito
+Apellidos:Perez Perez
+Dirección:Paseo de la Reforma
+Ciudad:Ciudad de México
+
+Tléfono:637569081
+Nombre:Menganito
+Apellidos:Perez Reverte
+Dirección:Avenida Paseo de la República
+Ciudad:Lima
+
+Tléfono:612857169
+Nombre:Juan
+Apellidos:Redondo Blanco
+Dirección:Calle Carabias
+Ciudad:Madrid
+
+Tléfono:693486127
+Nombre:Iker
+Apellidos:Rodriguez Valluela
+Dirección:Paseo de la Castellana
+Ciudad:Madrid
+
+Tléfono:619082470
+Nombre:Ángel
+Apellidos:Redondo Peterson
+Dirección:Paseo de las Delicias
+Ciudad:Madrid

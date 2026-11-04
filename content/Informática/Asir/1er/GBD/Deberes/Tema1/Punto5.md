@@ -1,0 +1,3 @@
+# Sobre las SGBD
+
+Los Sistemas Gestores de Bases de Datos son softwers encargados de la gestión y administración de los ficheros de las bases de datos. Algunos ejemplos de estas aplicaciones serían: MySQL, MongoDB, SQLite, Cassandra, Oracle… 

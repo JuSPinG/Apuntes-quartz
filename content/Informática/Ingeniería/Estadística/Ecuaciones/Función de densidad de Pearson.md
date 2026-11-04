@@ -1,0 +1,1 @@
+$$f_n(y)=\frac{1}{2^{n/2}\Gamma(\frac{n}{2})}y^{\frac{n}{2}-1}e^{-y/2} \rightarrow \gamma(n/2,\ 1/2)$$

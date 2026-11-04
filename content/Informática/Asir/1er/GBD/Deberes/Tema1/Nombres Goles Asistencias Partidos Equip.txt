@@ -1,0 +1,34 @@
+Nombres     Goles       Asistencias     Partidos        Equipo
+-------     -----       -----------     --------        ------
+
+Sequencial: goleadores.txt Caracter entre campos: "$"
+
+Bale$4$15$32$Real Madrid$Budimir$8$3$1$Real Osasuna$Lebron$10$15$22$Real Madrid$Morata$20$4$31$Atletico de Madrid
+
+
+Directo/Aleatorio: goleadores_directo.txt
+
+Nombres(15)    Goles(2)       Asistencias(3)     Partidos(2)        Equipo(50)
+-----------    --------       --------------     -----------        ----------
+Bale          4 15 32Real Madrid
+Budimir       8 3  1 Real Osasuna
+Lebron        1015 22Real Madrid
+Morata        20 4 31Atletico de Madrid
+
+Indexado: Goles, goleadores_goles.txt
+
+Goles  Index
+-----  -----
+20     4
+10     3
+8      2
+4      1
+
+Indexado: Asistencias/Partidos, goleadores_asis_npar.txt
+
+Asistencias  Partidos  Index
+-----------  --------  -----
+15 32 1
+15 22 3
+4  31 4
+3  2  1

@@ -1,0 +1,22 @@
+	<!-- <svg height="200" width="200" xmlns="http://www.w3.org/2000/svg">
+		<polygon points='
+			<?php /*
+				$cx = 100;
+				$cy = 100;
+				$r = 70;
+
+				$a = 360/$NCaras;
+				$points = ( $cx + $r ) . "," . $cy . " ";
+
+				for( $i = 1; $i <= $NCaras; $i++ ) {
+					$aRad = ( pi() / 180 ) * ( $a*$i );
+					$Xp = $cx + $r * cos($aRad);
+					$Yp = $cy + $r * sin($aRad);
+					$points .= $Xp . "," . $Yp . " ";
+				}
+
+				echo $points;
+			*/?>
+		'fill="#808080" stroke="black" stroke-width="2"/>
+		<text x='<?php echo($cx - 35/4) ?>' y='<?php echo($cy + 35/4) ?>' font-size="35"><?php echo rand(1, $NCaras) ?></text>
+	</svg> -->

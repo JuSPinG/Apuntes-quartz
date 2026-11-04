@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Michael Json</title>
+    <script src='../scripts/main.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='../style/main.css'>
+
+    <script>
+
+        function CargarDatos() {
+            setValue("disco", getValue("disco"));
+            setValue("uds", getValue("uds"));
+            setValue("anno", getValue("anno"));
+            setValue("precio", getValue("precio"));
+            setValue("fecha", getValue("fecha"));
+            setValue("nivel", getValue("nivel"));
+        }
+
+        function Salir() {
+            Swal.fire({
+                imageUrl: "../img/maxresdefault.jpg",
+                imageHeight: 500,
+                text: "Vive! la vida es bonita",
+                imageAlt: "MJ"
+            });
+
+            // window.location.href = '../jacko_01.html' // activar para volver a la página principal
+        }
+
+
+
+    </script>
+
+</head>
+<body onload="CargarDatos()">
+    <h1>Fin</h1>
+    <div class="container mt-3">
+        <table>
+            <tr>
+                <th>LP</th>
+                <th>Biografía</th>
+            </tr>
+            <tr>
+                <td>
+                    <label for="text">Disco</label>
+                    <input type="text" class="form-control" id="disco" name="disco" readonly>
+                </td>
+                <td>
+                    <label for="number">Año publicado</label>
+                    <input type="number" class="form-control" id="anno" name="anno" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="number">Nº unidades</label>
+                    <input type="number" class="form-control" id="uds" name="uds" readonly>
+                </td>
+                <td>
+                    <label for="fecha">Fecha título</label>
+                    <input type="date" class="form-control" id="fecha" name="fecha" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="number">Precio</label>
+                    <input type="number" class="form-control" id="precio" name="precio">
+                </td>
+                <td>
+                    <label for="range" style="text-align: center;">Rango de nivel</label>
+                    <input type="range" min="0" max="200" class="form-control" id="nivel" name="nivel" readonly>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <img src="../img/diseno-logotipo-letra-mj-sobre-fondo-blanco_692059-76.avif" alt="MJ" class="cent">
+    </div>
+    <button type="button" class="btn btn-primary" onclick="Salir()" style="display: block;">Atrás</button>
+    <br>
+</body>
+</html>
