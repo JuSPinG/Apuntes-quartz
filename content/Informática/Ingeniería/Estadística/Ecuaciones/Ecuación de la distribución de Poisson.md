@@ -1,1 +1,0 @@
-$$P(X=k)=e^{-\lambda}\cdot\frac{\lambda^k}{k!}; \ \ \ k\in\mathbb{N}$$

@@ -1,1 +1,0 @@
-$$P(A\cap B)=P(A)\cdot P(B)$$

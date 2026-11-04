@@ -1,1 +1,0 @@
-$$\mathcal{X}^2_n\sim\frac{1}{\sigma}\sum^{n}_{i=1}X^2_i$$

@@ -1,1 +1,0 @@
-$$X=\sqrt{-2\ln U_2}\cos 2\pi U_1,\ \ \ Y=\sqrt{-2\ln U_2}\sin 2\pi U_1$$

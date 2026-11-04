@@ -1,1 +1,0 @@
-$$P(A)=\frac{k}{n}; k\text{ es la cantidad de registros}$$

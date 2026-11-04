@@ -1,1 +1,0 @@
-$$\sigma_{X,Y}=\text{CovXY}=E\{(X-E\{X\})(Y-E\{Y\}\}=E\{XY\}-E\{X\}E\{Y\}$$

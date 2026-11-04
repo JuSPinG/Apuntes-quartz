@@ -1,1 +1,0 @@
-$$t=\sqrt{n-1}\frac{\bar X-\mu}{s}$$

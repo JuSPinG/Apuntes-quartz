@@ -1,1 +1,0 @@
-$$[1]k=n \xRightarrow{2}U\in[0,1], \ I=1+[kU]\xRightarrow{3}\text{Intercambiar } x_1 \text{ con }x_k \xRightarrow{4}k=k-1,\ k>1 \Rightarrow [2]\xRightarrow{5}\text{Devolver la ordenación en memoria}$$

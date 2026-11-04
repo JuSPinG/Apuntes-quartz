@@ -1,1 +1,0 @@
-$$\sigma^2=n\cdot p\cdot (1-p)$$

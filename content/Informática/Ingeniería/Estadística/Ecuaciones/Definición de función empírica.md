@@ -1,1 +1,0 @@
-$$F_n^*(x)=\frac{\text{número de elementos muestrales}\leq x}{n}$$

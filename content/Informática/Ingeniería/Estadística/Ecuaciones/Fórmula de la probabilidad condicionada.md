@@ -1,1 +1,0 @@
-$$P(B\mid A)=\frac{P(A\cap B)}{P(A)}$$

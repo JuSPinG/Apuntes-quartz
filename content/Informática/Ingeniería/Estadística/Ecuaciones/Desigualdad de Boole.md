@@ -1,1 +1,0 @@
-$$P(\bigcup^n_{i=1}A_i)\leq \sum^n_{i=1}P(A_i)$$ ^c14157
