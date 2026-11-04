@@ -1,0 +1,634 @@
+#!/bin/bash
+
+# ==============================================================================
+# CCN-STIC-610A22 - Auditoría Global de Bastionado en RHEL
+# Verifica el cumplimiento de los 12 scripts de bastionado CCN-STIC-610A22.
+# Solo lectura. No modifica ninguna configuración.
+# Ejecutar como root.
+# ==============================================================================
+set -u
+
+# ------------------------------------------------------------------------------
+# COLORES Y CONTADORES
+# ------------------------------------------------------------------------------
+CYAN='\033[1;36m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+RED='\033[1;31m'
+BOLD='\033[1m'
+NC='\033[0m'
+
+PASS=0
+FAIL=0
+WARN=0
+
+# ------------------------------------------------------------------------------
+# DETECCIÓN DE ENTORNO
+# ------------------------------------------------------------------------------
+SSH_PORT=$(grep -iE "^Port\s+" /etc/ssh/sshd_config 2>/dev/null | awk '{print $2}' | head -n1)
+[ -z "$SSH_PORT" ] && SSH_PORT=22
+
+IS_UEFI=false
+[ -d /sys/firmware/efi ] && IS_UEFI=true
+
+# ------------------------------------------------------------------------------
+# FUNCIONES AUXILIARES
+# ------------------------------------------------------------------------------
+
+pass_msg()  { echo -e "  ${GREEN}[OK]   ${NC} $1"; ((PASS++)); }
+fail_msg()  { echo -e "  ${RED}[ERROR]${NC} $1"; ((FAIL++)); }
+warn_msg()  { echo -e "  ${YELLOW}[WARN] ${NC} $1"; ((WARN++)); }
+info_msg()  { echo -e "  ${CYAN}[INFO] ${NC} $1"; }
+
+# Verifica que un fichero existe y contiene una regex
+check_regex() {
+	local file="$1" regex="$2" desc="$3"
+	if [ ! -f "$file" ]; then
+		fail_msg "$desc — FICHERO NO ENCONTRADO: $file"
+		return 1
+	fi
+	if grep -Eq "$regex" "$file" 2>/dev/null; then
+		pass_msg "$desc"
+	else
+		fail_msg "$desc  (fichero: $file)"
+	fi
+}
+
+# Verifica el valor de un parámetro sysctl en tiempo de ejecución
+check_sysctl() {
+	local key="$1" expected="$2"
+	local actual
+	actual=$(sysctl -n "$key" 2>/dev/null)
+	if [ "$actual" = "$expected" ]; then
+		pass_msg "sysctl $key = $expected"
+	else
+		fail_msg "sysctl $key  (actual: $actual, esperado: $expected)"
+	fi
+}
+
+# Verifica que un servicio está activo
+check_active() {
+	local svc="$1" desc="$2"
+	if systemctl is-active --quiet "$svc" 2>/dev/null; then
+		pass_msg "$desc (servicio: $svc)"
+	else
+		fail_msg "$desc (servicio: $svc)"
+	fi
+}
+
+# Verifica que un servicio está deshabilitado/enmascarado/inexistente
+check_masked() {
+	local svc="$1"
+	local state
+	if ! systemctl list-unit-files 2>/dev/null | grep -q "^${svc}"; then
+		state="not-found"
+	else
+		state=$(systemctl is-enabled "$svc" 2>/dev/null | head -n1)
+		[ -z "$state" ] && state="disabled"
+	fi
+	if [[ "$state" =~ ^(masked|disabled|not-found|static)$ ]]; then
+		pass_msg "Servicio deshabilitado/enmascarado: $svc  (estado: $state)"
+	else
+		fail_msg "Servicio activo o habilitado (debería estar enmascarado): $svc  (estado: $state)"
+	fi
+}
+
+# Verifica permisos y propietario de un fichero
+check_perms() {
+	local file="$1" exp_perms="$2" exp_owner="$3"
+	if [ ! -e "$file" ]; then
+		fail_msg "Fichero no encontrado: $file"
+		return
+	fi
+	local cur_perms cur_owner
+	cur_perms=$(stat -c "%a" "$file")
+	cur_owner=$(stat -c "%U:%G" "$file")
+	if [[ "$cur_perms" == "$exp_perms" && "$cur_owner" == "$exp_owner" ]]; then
+		pass_msg "Permisos/propietario correctos: $file  ($exp_perms, $exp_owner)"
+	else
+		fail_msg "Permisos incorrectos: $file  (actual: $cur_perms $cur_owner | esperado: $exp_perms $exp_owner)"
+	fi
+}
+
+# Verifica que un usuario NO existe
+check_user_absent() {
+	local usr="$1"
+	if id "$usr" &>/dev/null; then
+		fail_msg "Usuario innecesario aún presente: $usr"
+	else
+		pass_msg "Usuario eliminado: $usr"
+	fi
+}
+
+# Verifica que un grupo NO existe
+check_group_absent() {
+	local grp="$1"
+	if getent group "$grp" &>/dev/null; then
+		fail_msg "Grupo innecesario aún presente: $grp"
+	else
+		pass_msg "Grupo eliminado: $grp"
+	fi
+}
+
+# Verifica que un paquete NO está instalado
+check_pkg_absent() {
+	local pkg="$1"
+	if rpm -q "$pkg" &>/dev/null; then
+		fail_msg "Paquete no desinstalado: $pkg"
+	else
+		pass_msg "Paquete eliminado/no instalado: $pkg"
+	fi
+}
+
+# ==============================================================================
+# CABECERA
+# ==============================================================================
+clear
+echo -e "${CYAN}${BOLD}"
+echo "=============================================================================="
+echo "  CCN-STIC-610A22 — Auditoría de bastionado RHEL"
+echo "  Scripts del 01 al 12 — Solo lectura"
+echo "=============================================================================="
+echo -e "${NC}"
+echo -e "  Puerto SSH detectado : ${BOLD}$SSH_PORT${NC}"
+echo -e "  Firmware             : $(${IS_UEFI} && echo 'UEFI' || echo 'BIOS/Legacy')"
+echo -e "  Fecha                : $(date '+%Y-%m-%d %H:%M:%S')"
+echo -e "  Hostname             : $(hostname)"
+echo
+
+if [ "$EUID" -ne 0 ]; then
+	echo -e "${RED}[ERROR] Este script debe ejecutarse como root.${NC}"
+	exit 1
+fi
+
+# ==============================================================================
+# 01 — CONTRASEÑA GRUB  (Script 01)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 01. PROTECCIÓN DE GRUB${NC}"
+
+check_regex "/etc/grub.d/40_custom" "password_pbkdf2" \
+	"Contraseña PBKDF2 configurada en /etc/grub.d/40_custom"
+
+check_regex "/etc/grub.d/40_custom" "^set superusers=" \
+	"Superusuario GRUB definido en 40_custom"
+
+if [ -f "/boot/grub2/grub.cfg" ]; then
+	perm=$(stat -c "%a" /boot/grub2/grub.cfg)
+	[ "$perm" = "600" ] && pass_msg "Permisos 600 en /boot/grub2/grub.cfg" \
+						|| fail_msg "Permisos incorrectos en /boot/grub2/grub.cfg (actual: $perm, esperado: 600)"
+else
+	warn_msg "/boot/grub2/grub.cfg no encontrado (normal en UEFI puro)"
+fi
+
+if $IS_UEFI; then
+	if [ -f "/boot/efi/EFI/redhat/grub.cfg" ]; then
+		perm=$(stat -c "%a" /boot/efi/EFI/redhat/grub.cfg)
+		[ "$perm" = "600" ] && pass_msg "Permisos 600 en /boot/efi/EFI/redhat/grub.cfg" \
+							|| fail_msg "Permisos incorrectos en /boot/efi/EFI/redhat/grub.cfg (actual: $perm)"
+	else
+		fail_msg "Sistema UEFI detectado pero no existe /boot/efi/EFI/redhat/grub.cfg"
+	fi
+fi
+
+# ==============================================================================
+# 02 — USUARIOS ROOT Y SIN CONTRASEÑA  (Script 02)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 02. USUARIOS ROOT Y SIN CONTRASEÑA${NC}"
+
+# Root bloqueada para login directo
+root_shell=$(getent passwd root | cut -d: -f7)
+if [[ "$root_shell" == "/bin/false" || "$root_shell" == "/sbin/nologin" ]]; then
+	pass_msg "Shell de root es $root_shell (login directo bloqueado)"
+else
+	fail_msg "Shell de root es '$root_shell' (esperado: /bin/false)"
+fi
+
+# Caducidad de contraseña root
+root_min=$(awk -F: '$1=="root" {print $4}' /etc/shadow)
+root_max=$(awk -F: '$1=="root" {print $5}' /etc/shadow)
+
+[[ "$root_max" == "45" ]] && pass_msg "Caducidad máxima root = 45 días" \
+                           || fail_msg "Caducidad máxima root (actual: $root_max, esperado: 45)"
+[[ "$root_min" == "2" ]]  && pass_msg "Caducidad mínima root = 2 días" \
+                           || fail_msg "Caducidad mínima root (actual: $root_min, esperado: 2)"
+
+# Usuarios con UID 0 distintos de root
+uid0_list=$(awk -F: '$3==0 && $1!="root" {print $1}' /etc/passwd)
+if [ -z "$uid0_list" ]; then
+	pass_msg "Sin usuarios con UID 0 distintos de root"
+else
+	fail_msg "Usuarios con UID 0 detectados (distintos de root): $uid0_list"
+fi
+
+# Usuarios sin contraseña
+nopass_list=$(awk -F: 'length($2)==0 {print $1}' /etc/shadow 2>/dev/null)
+if [ -z "$nopass_list" ]; then
+	pass_msg "Sin usuarios con contraseña vacía en /etc/shadow"
+else
+	fail_msg "Usuarios sin contraseña: $nopass_list"
+fi
+
+# NOPASSWD en sudoers
+nopasswd=$(grep -v "^#" /etc/sudoers 2>/dev/null | grep -i "NOPASSWD")
+if [ -z "$nopasswd" ]; then
+	pass_msg "Sin entradas NOPASSWD en /etc/sudoers"
+else
+	fail_msg "Entradas NOPASSWD encontradas en sudoers: $nopasswd"
+fi
+
+# ==============================================================================
+# 03 — PARÁMETROS DEL KERNEL (SYSCTL)  (Script 03)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 03. PARÁMETROS DEL KERNEL (SYSCTL)${NC}"
+
+sysctl_params=(
+	"net.ipv4.conf.all.send_redirects:0"
+	"net.ipv4.conf.all.accept_redirects:0"
+	"net.ipv4.conf.default.accept_redirects:0"
+	"net.ipv4.conf.default.send_redirects:0"
+	"net.ipv4.conf.default.secure_redirects:0"
+	"net.ipv4.conf.all.secure_redirects:0"
+	"net.ipv4.conf.all.accept_source_route:0"
+	"net.ipv4.conf.default.accept_source_route:0"
+	"net.ipv4.conf.all.log_martians:1"
+	"net.ipv4.conf.default.log_martians:1"
+	"net.ipv4.icmp_ignore_bogus_error_responses:1"
+	"net.ipv4.icmp_echo_ignore_broadcasts:1"
+	"net.ipv4.tcp_syncookies:1"
+	"fs.suid_dumpable:0"
+	"net.ipv6.conf.default.accept_source_route:0"
+	"net.ipv6.conf.all.accept_source_route:0"
+	"net.ipv6.conf.all.accept_redirects:0"
+	"net.ipv6.conf.default.accept_ra:0"
+	"net.ipv6.conf.all.accept_ra:0"
+	"net.ipv6.conf.default.accept_redirects:0"
+)
+
+for param in "${sysctl_params[@]}"; do
+	key="${param%%:*}"
+	val="${param##*:}"
+	check_sysctl "$key" "$val"
+done
+
+# Persistencia en sysctl.conf
+check_regex "/etc/sysctl.conf" "net\.ipv4\.conf\.all\.send_redirects\s*=\s*0" \
+	"Persistencia sysctl en /etc/sysctl.conf"
+
+# ==============================================================================
+# 04 — PARÁMETROS SSH  (Script 04)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 04. CONFIGURACIÓN SSH${NC}"
+
+SSHD="/etc/ssh/sshd_config"
+
+check_regex "$SSHD" "^Port\s+[0-9]+"                   "Puerto SSH configurado explícitamente"
+check_regex "$SSHD" "^PermitRootLogin\s+no"             "PermitRootLogin no"
+check_regex "$SSHD" "^PermitEmptyPasswords\s+no"        "PermitEmptyPasswords no"
+check_regex "$SSHD" "^MaxAuthTries\s+3"                 "MaxAuthTries = 3"
+check_regex "$SSHD" "^MaxSessions\s+2"                  "MaxSessions = 2"
+check_regex "$SSHD" "^X11Forwarding\s+no"               "X11Forwarding no"
+check_regex "$SSHD" "^ClientAliveInterval\s+300"        "ClientAliveInterval = 300 s"
+check_regex "$SSHD" "^ClientAliveCountMax\s+3"          "ClientAliveCountMax = 3"
+check_regex "$SSHD" "^PermitTunnel\s+no"                "PermitTunnel no"
+check_regex "$SSHD" "^PermitUserEnvironment\s+no"       "PermitUserEnvironment no"
+check_regex "$SSHD" "^GSSAPIAuthentication\s+no"        "GSSAPIAuthentication no"
+check_regex "$SSHD" "^ChallengeResponseAuthentication\s+no" "ChallengeResponseAuthentication no"
+check_regex "$SSHD" "^Banner\s+/etc/ssh/issue"          "Banner configurado en /etc/ssh/issue"
+check_regex "$SSHD" "^LoginGraceTime\s+1m"              "LoginGraceTime = 1m"
+
+# Banner físico presente
+[ -f "/etc/ssh/issue" ] && pass_msg "Fichero /etc/ssh/issue existe" \
+						 || fail_msg "Fichero /etc/ssh/issue no existe"
+[ -s "/etc/ssh/issue" ] && pass_msg "Fichero /etc/ssh/issue no está vacío" \
+						 || warn_msg "Fichero /etc/ssh/issue existe pero está vacío"
+
+check_active "sshd" "Servicio sshd activo"
+
+# ==============================================================================
+# 05 — MANIPULACIÓN DE REGISTROS DE ACTIVIDAD (AUDITD)  (Script 05)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 05. AUDITORÍA (auditd)${NC}"
+
+check_active "auditd" "Demonio auditd activo"
+
+AUDIT_RULES="/etc/audit/rules.d/audit.rules"
+check_regex "$AUDIT_RULES" "\-w /etc/passwd"                    "Regla auditd: vigilancia /etc/passwd"
+check_regex "$AUDIT_RULES" "\-w /etc/shadow"                    "Regla auditd: vigilancia /etc/shadow"
+check_regex "$AUDIT_RULES" "\-w /etc/sudoers"                   "Regla auditd: vigilancia /etc/sudoers"
+check_regex "$AUDIT_RULES" "\-w /etc/ssh/sshd_config"           "Regla auditd: vigilancia sshd_config"
+check_regex "$AUDIT_RULES" "\-w /etc/audit/"                    "Regla auditd: vigilancia /etc/audit/"
+check_regex "$AUDIT_RULES" "euid=0.*execve|execve.*euid=0"      "Regla auditd: ejecuciones de root (rootcmd)"
+check_regex "$AUDIT_RULES" "\-w /usr/bin/sudo"                  "Regla auditd: vigilancia sudo"
+check_regex "$AUDIT_RULES" "\-w /bin/su"                        "Regla auditd: vigilancia su"
+check_regex "$AUDIT_RULES" "perm_mod"                           "Regla auditd: modificaciones DAC (perm_mod)"
+check_regex "$AUDIT_RULES" "delete"                             "Regla auditd: eliminación de ficheros (delete)"
+check_regex "$AUDIT_RULES" "\-a always,exit -F arch=b32 -S all" "Regla auditd: detección API 32 bits"
+
+AUDITD_CONF="/etc/audit/auditd.conf"
+check_regex "$AUDITD_CONF" "^max_log_file\s*=\s*10"             "auditd: max_log_file = 10"
+check_regex "$AUDITD_CONF" "^num_logs\s*=\s*12"                 "auditd: num_logs = 12"
+check_regex "$AUDITD_CONF" "^max_log_file_action\s*=\s*ROTATE"  "auditd: max_log_file_action = ROTATE"
+
+audit_conf_perm=$(stat -c "%a" "$AUDITD_CONF" 2>/dev/null)
+[ "$audit_conf_perm" = "600" ] && pass_msg "Permisos 600 en $AUDITD_CONF" \
+								 || fail_msg "Permisos incorrectos en $AUDITD_CONF (actual: $audit_conf_perm, esperado: 600)"
+
+# ==============================================================================
+# 06 — DESINSTALAR USUARIOS INNECESARIOS  (Script 06)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 06. USUARIOS Y GRUPOS INNECESARIOS${NC}"
+
+for usr in ftp mail geoclue; do
+	check_user_absent "$usr"
+done
+
+for grp in games floppy; do
+	check_group_absent "$grp"
+done
+
+# Shell /bin/false en usuarios del sistema (UID 1-999)
+sys_with_shell=$(awk -F: '$3>=1 && $3<1000 && $7!="/bin/false" && $7!="/sbin/nologin" && $7!="" && $7!="/bin/sync" && $7!="/sbin/shutdown" && $7!="/sbin/halt" {print $1":"$7}' /etc/passwd)
+if [ -z "$sys_with_shell" ]; then
+	pass_msg "Todos los usuarios del sistema tienen shell restringida"
+else
+	fail_msg "Usuarios del sistema con shell no restringida: $sys_with_shell"
+fi
+
+# Shell de nobody
+nobody_shell=$(getent passwd nobody | cut -d: -f7)
+[[ "$nobody_shell" == "/bin/false" || "$nobody_shell" == "/sbin/nologin" ]] \
+	&& pass_msg "Shell de nobody es $nobody_shell" \
+	|| fail_msg "Shell de nobody es '$nobody_shell' (esperado: /bin/false)"
+
+# ==============================================================================
+# 07 — BLOQUEO POR INTENTOS FALLIDOS (PAM FAILLOCK)  (Script 07)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 07. BLOQUEO DE CUENTAS (PAM / faillock)${NC}"
+
+for pam_file in /etc/pam.d/system-auth /etc/pam.d/password-auth; do
+	check_regex "$pam_file" "pam_faillock\.so"                          "pam_faillock habilitado en $pam_file"
+	check_regex "$pam_file" "deny=8"                                    "deny=8 en $pam_file"
+	check_regex "$pam_file" "even_deny_root"                            "even_deny_root en $pam_file"
+	check_regex "$pam_file" "unlock_time=0"                             "unlock_time=0 en $pam_file"
+	check_regex "$pam_file" "pam_pwhistory\.so.*remember=20|remember=20.*pam_pwhistory\.so" \
+																		"remember=20 (historial contraseñas) en $pam_file"
+	check_regex "$pam_file" "pam_pwquality\.so"                         "pam_pwquality habilitado en $pam_file"
+done
+
+# ==============================================================================
+# 08 — LÍMITES, PERMISOS Y CADUCIDAD DE CONTRASEÑAS  (Script 08)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 08. LÍMITES, PERMISOS Y CONTRASEÑAS${NC}"
+
+LIMITS="/etc/security/limits.conf"
+check_regex "$LIMITS" "^\*\s+soft\s+core\s+0"      "limits.conf: soft core = 0"
+check_regex "$LIMITS" "^\*\s+hard\s+core\s+0"      "limits.conf: hard core = 0"
+check_regex "$LIMITS" "hard\s+maxlogins\s+1"        "limits.conf: hard maxlogins = 1"
+check_regex "$LIMITS" "hard\s+nofile\s+65536"       "limits.conf: hard nofile = 65536"
+check_regex "$LIMITS" "hard\s+nproc\s+4096"         "limits.conf: hard nproc = 4096"
+
+LOGIN_DEFS="/etc/login.defs"
+check_regex "$LOGIN_DEFS" "^PASS_MAX_DAYS\s+45"     "login.defs: PASS_MAX_DAYS = 45"
+check_regex "$LOGIN_DEFS" "^PASS_MIN_DAYS\s+2"      "login.defs: PASS_MIN_DAYS = 2"
+check_regex "$LOGIN_DEFS" "^PASS_WARN_AGE\s+10"     "login.defs: PASS_WARN_AGE = 10"
+check_regex "$LOGIN_DEFS" "^PASS_MIN_LEN\s+12"      "login.defs: PASS_MIN_LEN = 12"
+check_regex "$LOGIN_DEFS" "^ENCRYPT_METHOD\s+SHA512" "login.defs: ENCRYPT_METHOD = SHA512"
+check_regex "$LOGIN_DEFS" "^UMASK\s+027"            "login.defs: UMASK = 027"
+
+PWQUALITY="/etc/security/pwquality.conf"
+check_regex "$PWQUALITY" "^minlen\s*=\s*12"         "pwquality: minlen = 12"
+check_regex "$PWQUALITY" "^dcredit\s*=\s*1"         "pwquality: dcredit = 1"
+check_regex "$PWQUALITY" "^ucredit\s*=\s*1"         "pwquality: ucredit = 1"
+check_regex "$PWQUALITY" "^lcredit\s*=\s*1"         "pwquality: lcredit = 1"
+check_regex "$PWQUALITY" "^ocredit\s*=\s*1"         "pwquality: ocredit = 1"
+
+# Caducidad usuarios normales (UID >= 1000)
+expired_users=0
+for login in $(awk -F: '$3>=1000 {print $1}' /etc/passwd); do
+    max=$(chage -l "$login" 2>/dev/null | grep "máximo" | awk -F: '{print $2}' | tr -d ' ')
+    if [[ "$max" != "45" ]]; then
+        ((expired_users++))
+    fi
+done
+
+[ "$expired_users" -eq 0 ] && pass_msg "Caducidad máxima de 45 días aplicada a todos los usuarios normales" \
+							 || fail_msg "$expired_users usuario(s) normal(es) sin caducidad máxima de 45 días"
+
+# Permisos directorios home
+bad_home=0
+for login in $(awk -F: '$3>=1000 {print $1}' /etc/passwd); do
+	home=$(getent passwd "$login" | cut -d: -f6)
+	if [ -d "$home" ]; then
+		perm=$(stat -c "%a" "$home")
+		# g-w = bit 020 apagado, o-rwx = bits 007 apagados → acceptable: 700, 710, 750 etc sin o+rwx ni g+w
+		if [[ $(( 8#$perm & 8#027 )) -ne 0 ]]; then
+			((bad_home++))
+		fi
+	fi
+done
+[ "$bad_home" -eq 0 ] && pass_msg "Permisos de directorios /home correctos (g-w, o-rwx)" \
+					   || fail_msg "$bad_home directorio(s) /home con permisos excesivos"
+
+# ==============================================================================
+# 09 — PARÁMETROS GNOME  (Script 09)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 09. PARÁMETROS GNOME (dconf)${NC}"
+
+check_regex "/etc/dconf/db/gdm.d/00-login-screen" "disable-user-list=true" "Lista de usuarios deshabilitada en GDM"
+check_regex "/etc/dconf/db/gdm.d/01-banner-message" "banner-message-enable=true" "Banner GDM habilitado"
+check_regex "/etc/dconf/db/local.d/00-screensaver" "idle-delay=uint32 600"  "Timeout inactividad pantalla = 600 s"
+check_regex "/etc/dconf/db/local.d/00-screensaver" "lock-enabled=true"      "Bloqueo de pantalla habilitado"
+check_regex "/etc/dconf/db/local.d/00-screensaver" "lock-delay=uint32 0"    "Retraso de bloqueo = 0 s"
+
+LOCK_FILE="/etc/dconf/db/local.d/locks/screensaver"
+check_regex "$LOCK_FILE" "idle-delay"           "Bloqueo dconf: idle-delay fijado"
+check_regex "$LOCK_FILE" "lock-enabled"         "Bloqueo dconf: lock-enabled fijado"
+check_regex "$LOCK_FILE" "lock-delay"           "Bloqueo dconf: lock-delay fijado"
+
+# TMOUT en profile
+tmout_found=false
+for f in /etc/profile.local /etc/profile.d/timeout.sh /etc/profile; do
+	if grep -q "TMOUT=600" "$f" 2>/dev/null; then
+		pass_msg "TMOUT=600 configurado en $f"
+		tmout_found=true
+		break
+	fi
+done
+$tmout_found || fail_msg "TMOUT=600 no encontrado en ningún fichero de perfil"
+
+# Banner en /etc/issue, /etc/issue.net y /etc/motd
+for banner_file in /etc/issue /etc/issue.net /etc/motd; do
+	if [ -s "$banner_file" ]; then
+		pass_msg "Banner presente en $banner_file"
+	else
+		warn_msg "Fichero de banner vacío o inexistente: $banner_file"
+	fi
+done
+
+# ==============================================================================
+# 10 — ELEMENTOS INNECESARIOS  (Script 10)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 10. PAQUETES Y SERVICIOS INNECESARIOS${NC}"
+
+# Paquetes que deben estar desinstalados
+for pkg in chrony firstboot speech-dispatcher postfix xinetd telnet-server \
+		   rsh-server ypbind ypserv bind vsftpd dovecot squid net-snmp \
+		   talk-server; do
+	check_pkg_absent "$pkg"
+done
+
+# Módulos de kernel bloqueados
+MODPROBE_CONF="/etc/modprobe.d/limites_archivos.conf"
+[ -f "$MODPROBE_CONF" ] && pass_msg "Fichero de restricciones de módulos existe: $MODPROBE_CONF" \
+						 || fail_msg "Fichero de restricciones de módulos no existe: $MODPROBE_CONF"
+
+for mod in cramfs freevxfs jffs2 hfs hfsplus squashfs udf cifs nfs bluetooth; do
+	check_regex "$MODPROBE_CONF" "install\s+$mod\s+/bin/true" "Módulo $mod bloqueado"
+done
+
+# Servicios enmascarados
+masked_services=(
+	"bluetooth.target"
+	"printer.target"
+	"rpcbind.target"
+	"debug-shell.service"
+	"console-getty.service"
+	"rdisc.service"
+	"nftables.service"
+	"plymouth-start.service"
+	"serial-getty@.service"
+	"ebtables.service"
+	"cpupower.service"
+)
+for svc in "${masked_services[@]}"; do
+	check_masked "$svc"
+done
+
+# Compiladores bloqueados (chmod 000)
+for compiler in /usr/bin/gcc /usr/bin/cc /usr/bin/make; do
+	if [ -f "$compiler" ]; then
+		perm=$(stat -c "%a" "$compiler")
+		[ "$perm" = "0" ] && pass_msg "Compilador bloqueado (000): $compiler" \
+						   || fail_msg "Compilador no bloqueado: $compiler  (permisos: $perm, esperado: 000)"
+	else
+		pass_msg "Compilador no instalado: $compiler"
+	fi
+done
+
+# ==============================================================================
+# 11 — PAQUETES HUÉRFANOS  (Script 11)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 11. PAQUETES HUÉRFANOS${NC}"
+
+# yum-utils instalado (necesario para package-cleanup)
+if rpm -q yum-utils &>/dev/null; then
+	pass_msg "yum-utils instalado (package-cleanup disponible)"
+else
+	warn_msg "yum-utils no instalado; no se puede verificar huérfanos con package-cleanup"
+fi
+
+# Verificar si hay paquetes con dependencias rotas
+broken=$(rpm -Va --nofiles --nodigest 2>/dev/null | grep -c "^missing" || true)
+if [ "$broken" -eq 0 ] 2>/dev/null; then
+	pass_msg "Sin dependencias RPM rotas detectadas"
+else
+	warn_msg "$broken paquetes con posibles dependencias rotas (ejecutar: rpm -Va)"
+fi
+
+# Cache limpia
+dnf_cache_size=$(du -sm /var/cache/dnf 2>/dev/null | cut -f1)
+if [ "${dnf_cache_size:-0}" -lt 100 ]; then
+	pass_msg "Caché DNF pequeña o limpia (${dnf_cache_size:-0} MB)"
+else
+	warn_msg "Caché DNF grande (${dnf_cache_size} MB) — considerar: dnf clean all"
+fi
+
+# ==============================================================================
+# 12 — LIMITACIÓN USB (USBGuard)  (Script 12)
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> 12. CONTROL DE DISPOSITIVOS USB (USBGuard)${NC}"
+
+check_active "usbguard.service" "Servicio USBGuard activo"
+
+USBGUARD_CONF="/etc/usbguard/usbguard-daemon.conf"
+check_regex "$USBGUARD_CONF" "^ImplicitPolicyTarget\s*=\s*block" \
+	"Política implícita USBGuard = block"
+check_regex "$USBGUARD_CONF" "^InsertedDevicePolicy\s*=\s*apply-policy" \
+	"InsertedDevicePolicy = apply-policy"
+check_regex "$USBGUARD_CONF" "^PresentDevicePolicy\s*=\s*apply-policy" \
+	"PresentDevicePolicy = apply-policy"
+check_regex "$USBGUARD_CONF" "^AuditBackend\s*=\s*FileAudit" \
+	"AuditBackend = FileAudit"
+check_regex "$USBGUARD_CONF" "IPCAllowedUsers\s*=.*root" \
+	"root en IPCAllowedUsers"
+
+USBGUARD_RULES="/etc/usbguard/rules.conf"
+[ -f "$USBGUARD_RULES" ] && pass_msg "Fichero de reglas USBGuard existe: $USBGUARD_RULES" \
+						   || warn_msg "Fichero de reglas USBGuard no encontrado: $USBGUARD_RULES"
+
+if [ -d "/var/log/usbguard" ]; then
+	pass_msg "Directorio de logs USBGuard existe (/var/log/usbguard)"
+else
+	warn_msg "Directorio de logs USBGuard no existe (/var/log/usbguard)"
+fi
+
+# ==============================================================================
+# CONTROLES ADICIONALES TRANSVERSALES
+# ==============================================================================
+echo -e "\n${CYAN}${BOLD}>>> CONTROLES ADICIONALES${NC}"
+
+# SELinux
+selinux_mode=$(getenforce 2>/dev/null)
+[ "$selinux_mode" = "Enforcing" ] && pass_msg "SELinux en modo Enforcing" \
+								   || fail_msg "SELinux en modo '$selinux_mode' (debe ser Enforcing)"
+
+# Firewalld
+check_active "firewalld" "Servicio firewalld activo"
+firewall-cmd --list-services 2>/dev/null | grep -q "ssh" \
+	&& pass_msg "SSH permitido en firewalld" \
+	|| { firewall-cmd --list-ports 2>/dev/null | grep -q "${SSH_PORT}/tcp" \
+		 && pass_msg "Puerto SSH ($SSH_PORT/tcp) permitido en firewalld" \
+		 || fail_msg "SSH/puerto $SSH_PORT no encontrado en reglas firewalld"; }
+
+# Permisos ficheros críticos
+check_perms "/etc/shadow"  "0"   "root:root"
+check_perms "/etc/passwd"  "644" "root:root"
+check_perms "/etc/sudoers" "440" "root:root"
+check_perms "/root"        "700" "root:root"
+
+# Crond activo
+check_active "crond" "Demonio crond activo"
+
+# Resumen de usuarios bloqueados (UID ≥ 1000 con /bin/false)
+blocked=$(awk -F: '$3>=1000 && $7=="/bin/false" {print $1}' /etc/passwd | wc -l)
+info_msg "Usuarios normales (UID≥1000) con shell /bin/false: $blocked"
+
+# ==============================================================================
+# RESUMEN FINAL
+# ==============================================================================
+TOTAL=$((PASS + FAIL + WARN))
+
+echo
+echo -e "${CYAN}${BOLD}=============================================================================="
+echo "                          RESUMEN DE AUDITORÍA"
+echo -e "==============================================================================${NC}"
+echo -e "  Total de comprobaciones : ${BOLD}$TOTAL${NC}"
+echo -e "  ${GREEN}Correctas  (PASS)${NC}       : ${GREEN}${BOLD}$PASS${NC}"
+echo -e "  ${RED}Fallidas   (FAIL)${NC}       : ${RED}${BOLD}$FAIL${NC}"
+echo -e "  ${YELLOW}Advertencias (WARN)${NC}     : ${YELLOW}${BOLD}$WARN${NC}"
+echo -e "${CYAN}${BOLD}==============================================================================${NC}"
+
+if [ "$FAIL" -eq 0 ] && [ "$WARN" -eq 0 ]; then
+	echo -e "\n  ${GREEN}${BOLD}[✔] ¡Excelente! Todas las configuraciones cumplen con CCN-STIC-610A22.${NC}"
+elif [ "$FAIL" -eq 0 ]; then
+	echo -e "\n  ${YELLOW}[!] Sin errores críticos, pero hay $WARN advertencias que conviene revisar.${NC}"
+else
+	echo -e "\n  ${RED}[✘] Se detectaron $FAIL configuraciones que NO cumplen con el estándar.${NC}"
+	[ "$WARN" -gt 0 ] && echo -e "  ${YELLOW}[!] Adicionalmente hay $WARN advertencias que conviene revisar.${NC}"
+fi
+
+echo -e "${CYAN}${BOLD}==============================================================================${NC}"
+echo -e "  Auditoría finalizada: $(date '+%Y-%m-%d %H:%M:%S')"
+echo -e "${CYAN}${BOLD}==============================================================================${NC}"
+
+exit $FAIL

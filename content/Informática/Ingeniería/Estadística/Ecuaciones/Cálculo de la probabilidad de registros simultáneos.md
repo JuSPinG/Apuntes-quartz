@@ -1,0 +1,1 @@
+$$P(A)=\frac{n-1}{\binom{n}{k}}; k\text{ es la cantidad de registros}$$

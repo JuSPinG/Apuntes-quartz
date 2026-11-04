@@ -12,3 +12,41 @@ replit.nix
 .quartz/
 quartz/cli/tui/dist/
 .turbo/
+
+*.exe
+*.o
+*.d
+
+content/Informática/Asir/1er/clase.txt
+public/Informática/Asir/1er/clase.txt
+
+content/Informática/Asir/1er/ISO/Queja formal del examen de ISO del 2024-11-28.md
+public/Informática/Asir/1er/ISO/Queja formal del examen de ISO del 2024-11-28.md
+
+content/Sociología/1er/Introducción a la Psicología Social/Recursos/Psicología social; perspectivas psicológicas y sociológicas - José Luis Álvaro Estramiana.pdf
+public/Sociología/1er/Introducción a la Psicología Social/Recursos/Psicología social; perspectivas psicológicas y sociológicas - José Luis Álvaro Estramiana.pdf
+
+content/Informática/Asir/2do/Python/5. Juego de la vida con Rust/*
+public/Informática/Asir/2do/Python/5. Juego de la vida con Rust/*
+
+content/Informática/Asir/1er/Practicas/*
+public/Informática/Asir/1er/Practicas/*
+
+content/Informática/Asir/2do/Python/2. Gran proyecto/Datos/*
+public/Informática/Asir/2do/Python/2. Gran proyecto/Datos/*
+
+content/Informática/Ingeniería/**/*.pdf
+public/Informática/Ingeniería/**/*.pdf
+
+content/Informática/Ingeniería/Fundamentos de programación/Ejercicios/
+public/Informática/Ingeniería/Fundamentos de programación/Ejercicios/
+
+content/Informática/Asir/2do/TFG/Proyecto/
+RECORDATORIO.txt
+
+**/.trash/
+**/.vscode/
+**/.build/
+**/build/
+**/.obsidian/
+**/.git/

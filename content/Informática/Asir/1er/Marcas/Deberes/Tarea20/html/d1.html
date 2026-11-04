@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Intérprete Markdown</title>
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js "></script>
+	<script src="../scripts/main.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="../styles/main.css">
+</head>
+<body>
+	<div class="sidebar">
+		<h2>Menú</h2>
+		<ul>
+			<li><button onclick="window.location.href='../main.html'">Inicio</button></li>
+			<li id="seleccionado"><button onclick="window.location.href='#'">Día 1</button></li>
+			<li><button onclick="window.location.href='d2.html'">Día 2</button></li>
+			<li><button onclick="window.location.href='d3.html'">Día 3</button></li>
+		</ul>
+	</div>
+	<div class="content">
+        <div class="quote" style="animation: fadeIn 1s ease-out forwards">
+            <span>Ismael</span>
+            <p>Se ha instalado una máquina cliente Debian con el entorno de escritorio LXDE, asignándole 30 GB de espacio en disco y 2 GB de RAM. Posteriormente, se han instalado las Guest Additions para mejorar la integración del sistema con el entorno virtualizado.</p>
+            <p>Ha documentado las tareas realizadas durante el primer día de todos los miembros del grupo.</p>
+            <p>Por otro lado, se ha investigado el uso del elemento "<i>textarea</i>" en HTML para desarrollar un servidor capaz de generar un archivo .txt al hacer clic en el botón "submit". Este archivo contendría la documentación introducida previamente. Sin embargo, tras hablarlo, se ha decidido no implementarlo.</p>
+            <p>Instalación de ssh para poder acceder desde el servidor, para instalar el Minetest directamente con el comando "<i>apt install minetest</i>".</p>
+            <time></time>
+        </div>
+        <div class="quote" style="animation: fadeIn 1.25s ease-out forwards">
+            <span>Marcos</span>
+            <p>Se ha instalado una máquina cliente Debian con el entorno de escritorio LXDE, asignándole 32 GB de espacio en disco y 2 GB de RAM. Posteriormente, se han instalado las Guest Additions para mejorar la integración del sistema con el entorno virtualizado.</p>
+            <p>Se está encargando del css de la página web de la información.</p>
+            <p>Por otro lado, se ha investigado el uso del elemento "<i>textarea</i>" en HTML para desarrollar un servidor capaz de generar un archivo .txt al hacer clic en el botón "submit". Este archivo contendría la documentación introducida previamente. Sin embargo, tras hablarlo, se ha decidido no implementarlo.</p>
+            <p>Por último, estuvo revisando e instalando las Guest Adittions de sus compañeros.</p>
+            <time></time>
+        </div>
+        <div class="quote" style="animation: fadeIn 1.5s ease-out forwards">
+            <span>Elena</span>
+            <p>Se ha instalado una máquina cliente Debian con el entorno de escritorio LXDE, asignándole 30 GB de espacio en disco y 2 GB de RAM. Posteriormente, se han instalado las Guest Additions para mejorar la integración del sistema con el entorno virtualizado.</p>
+            <p>Está investigando sobre SQLITE.</p>
+            <p>Está investigando sobre más juegos, y lo necesario para la instalación y localizar su base de datos, en todos los casos buscados sqlite.</p>
+            <time></time>
+        </div>
+        <div class="quote" style="animation: fadeIn 1.75s ease-out forwards">
+            <span>Alberto</span>
+            <p>Se ha instalado una máquina servidor Debian con el entorno de escritorio LXDE y la opción de ssh server, asignándole 50 GB de espacio en disco y 4 GB de RAM. Posteriormente, se han instalado las Guest Additions para mejorar la integración del sistema con el entorno virtualizado.</p>
+            <p>Investigación sobre el Minetest y mas juegos.</p>
+            <p>Intentar instalar Minetest Server con un archivo compilado sin éxito.</p>
+            <p>Intentar instalar Minetest Server mediante repositorio. Funciona, pero aun no se puede ver la base de datos.</p>
+            <time></time>
+        </div>
+	</div>
+</body>
+</html>

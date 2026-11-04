@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Monotérmino</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style/main.css'>
+    <script src='scripts/main.js'></script>
+</head>
+<body style="overflow-y: hidden; background-image: url(fondo.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    <h1>Monotérmino</h1>
+    <br>
+    <p class="entrada1">Pregunta 1:</p>
+    <p class="fundido">¿Qué empresa de creación de páginas web fundó Avishai Abrahami en 2006? Pista: La hemos usado y da bastante grima</p>
+    <div class="pizarra fundido-pizarra">
+        <div class="texto-1">Acerca el ratón para ver la respuesta</div>
+        <div class="texto-2" style="display: none;">Wix</div>
+        <div class="foco"></div>
+    </div>
+    <p class="entrada1">Pregunta 2:</p>
+    <p class="fundido">¿Cómo se denomina el tipo de dato que admite, generalmente, 2 valores, siendo estos `true` y `false?`</p>
+    <div class="pizarra">
+        <div class="texto-1">Acerca el ratón para ver la respuesta</div>
+        <div class="texto-2" style="display: none;">Booleano</div>
+        <div class="foco"></div>
+    </div>
+    <p class="entrada1">Pregunta 3:</p>
+    <p class="fundido">¿Cuál es la primera palabra del sistema operativo de Linux orientado al hacking?</p>
+    <div class="pizarra">
+        <div class="texto-1">Acerca el ratón para ver la respuesta</div>
+        <div class="texto-2" style="display: none;">Kali</div>
+        <div class="foco"></div>
+    </div>
+    <p class="entrada1">Pregunta 4:</p>
+    <p class="fundido">A diferencia de la sentencia `while` de JavaScript, ¿Con qué elementos extra cuenta el controlador de flujo `for`?</p>
+    <div class="pizarra">
+        <div class="texto-1">Acerca el ratón para ver la respuesta</div>
+        <div class="texto-2" style="display: none;">Precondición, poscondición, precondicional, postcondicional</div>
+        <div class="foco"></div>
+    </div>
+    <p class="entrada1">Pregunta 5:</p>
+    <p class="fundido">¿Qué imprime `console.log("1" - "1")` por consola?</p>
+    <div class="pizarra">
+        <div class="texto-1">Acerca el ratón para ver la respuesta</div>
+        <div class="texto-2" style="display: none;">0</div>
+        <div class="foco"></div>
+    </div>
+
+    <script>
+        const pizarras = document.querySelectorAll('.pizarra');
+
+        pizarras.forEach(pizarra => {
+            const texto1 = pizarra.querySelector('.texto-1');
+            const texto2 = pizarra.querySelector('.texto-2');
+            const foco = pizarra.querySelector('.foco');
+
+            // Detecta el movimiento del ratón dentro de la pizarra
+            pizarra.addEventListener('mousemove', (e) => {
+                const x = e.clientX - pizarra.offsetLeft;
+                const y = e.clientY - pizarra.offsetTop;
+
+                foco.style.left = `${x - 15}px`;
+                foco.style.top = `${y - 15}px`;
+
+                const distancia = Math.sqrt(Math.pow(x - texto1.offsetLeft, 2) + Math.pow(y - texto1.offsetTop, 2));
+                if (distancia < 100) {
+                    texto1.style.opacity = 0;
+                    texto2.style.display = 'block';
+                    texto2.style.opacity = 1;
+                } else {
+                    texto1.style.opacity = 1;
+                    texto2.style.display = 'none';
+                    texto2.style.opacity = 0;
+                }
+            });
+        });
+
+
+
+    </script>
+</body>
+</html>

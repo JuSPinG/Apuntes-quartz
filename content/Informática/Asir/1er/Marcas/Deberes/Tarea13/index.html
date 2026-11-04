@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Frío o calor</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #resultado {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .caliente {
+            color: red;
+        }
+        .templado {
+            color: orange;
+        }
+        .frio {
+            background: linear-gradient(to right, red, blue);
+            background-clip: text;
+            color: transparent;
+        }
+        .congelado {
+            color: lightblue;
+        }
+        .helado {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduce un número entre 1 y 100</h1>
+
+    <input type="number" id="num" min="1" max="100">
+    <input type="button" id="dame" value="Dame raina!!">
+    <p id="resultado"></p>
+    <p id="intentos">Te quedan 10 intentos restantes</p>
+    
+    <script>
+        const tarjet = Math.floor(Math.random() * 100) + 1;
+        console.log("Número oculto: " + tarjet);
+
+        let cont = 0;
+
+        document.getElementById("dame").addEventListener("click", () => {
+
+            if (cont >= 9) {
+                alert("No te quedan más intentos");
+                document.getElementById("dame").style.opacity = 0;
+                document.getElementById("intentos").style.opacity = 0;
+            }
+
+            const num = parseInt(document.getElementById("num").value, 10);
+
+            if (isNaN(num) || num < 1 || num > 100) {
+                alert("Por favor, introduce un número válido entre 1 y 100.");
+            }
+
+            const resultado = document.getElementById("resultado");
+            const distancia = Math.abs(num - tarjet);
+
+            if (distancia === 0) {
+                resultado.textContent = "¡Has acertado! 🎉";
+                resultado.className = "caliente";
+            } else if (distancia <= 5) {
+                resultado.textContent = "Caliente caliente 🔥";
+                resultado.className = "caliente";
+            } else if (distancia <= 15) {
+                resultado.textContent = "Templado 🤔";
+                resultado.className = "templado";
+            } else if (distancia <= 30) {
+                resultado.textContent = "Frío frío ❄️";
+                resultado.className = "frio";
+            } else if (distancia <= 50) {
+                resultado.textContent = "Helado 🧊";
+                resultado.className = "helado";
+            } else {
+                resultado.textContent = "Congelado 🥶"; 
+                resultado.className = "congelado";
+            }
+
+            cont++;
+            document.getElementById("intentos").textContent = "Te quedan " + (10 - cont) + " intentos"
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+$$[1]U\in[0,1]\xRightarrow{2}i=1\xRightarrow{3}U\leq \sum^{j}_{i=1}p_1\rightarrow i=i+1\xRightarrow{4}X=x_i$$

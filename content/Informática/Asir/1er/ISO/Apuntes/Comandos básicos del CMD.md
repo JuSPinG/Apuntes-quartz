@@ -1,0 +1,7 @@
+- `help`: Muestra la ayuda contextual del CMD.
+- `dir`: Muestra los directorios.
+- `time`: Muestra, y permite editar, la hora actual.
+- `cls`: Borra lo escrito en la pantalla.
+- `copy`: Copia unos archivos de un directorio a otro.
+- `cd`: Cambia de directorio.
+- `bcdedit`: Muestra información del arranque del sistema.

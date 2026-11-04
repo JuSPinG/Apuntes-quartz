@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Calle abarrotada</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+</head>
+<body>
+    <h1>Día 0, 15:42 -- Tiempo de correr (de nuevo)</h1>
+    <p>En medio de la multitud, una patrulla de policía me toca el hombro, y me dice me vaya detenido con él. Lleva un rifle, así que no me conviene resistirme.</p>
+    <p>Te han arrestado, <a href="../main.html">empezar otra partida</a>.</p>
+    <img src="../Img/9.png">
+    <audio id="backgroundMusic" loop>
+        <source src="../Sounds/Combat Cocktail.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+</body>
+</html>

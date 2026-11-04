@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../main.css">
+	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+	<title>Elije tu propia aventura</title>
+</head>
+<body>
+	<h1>Día 0, 14:53 -- Un fuerte dolor de cabeza</h1>
+	<p>Espera, ¿Dónde estoy? Parece un edificio de concreto abandonado, me encuentro muy aturdido, ¿Qué hago aquí? Voy a inspeccionar la zona. Dios mío, ese es mi hermano, está sangrando por todas partes. ¡Jorge, Jorge, despierta! No me hace caso, menos mal que me acuerdo de cómo hacer una RCP, lo aprendí ese día en La Salle. Llevo ya unos minutos y mi hermano sigue sin respirar, no puedo llamar a una ambulancia porque seré yo quien me vengue de los que se han cobrado la vida de mi hermano. Definitivamente, ha muerto. Estoy debastado, no hay tiempo que perder, me tengo que vengar de esos sinvergüenzas, pero... No recuerdo nada de lo que ha sucedido, la paliza que me han dado me ha hecho perder bastante memoria, no sé ni lo que hago aquí... Debería ir a mi casa y recoger mi diario, allí guardo información de todo lo que ha pasado estos días.</p>
+	<ul>
+		<li><a href="ir_a_por_el_diario.html">Ir a por el diario</a>.</li>
+		<li><a href="explorar_la_zona.html">Explorar la zona</a>.</li>
+		<li><a href="llama_a_la_ambulancia.html">Llamar a la ambulancia</a>.</li>
+	</ul>
+	<img src="../Img/1.png" alt="">
+
+	<audio id="backgroundMusic" loop>
+        <source src="../Sounds/Blood for sex.mp3" type="audio/ogg" loop>
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }, { once: true });
+    </script>
+	
+</body>
+</html>
