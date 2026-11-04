@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: es-ES
-  baseUrl: jusping.github.io
+  baseUrl: jusping.github.io/Apuntes-quartz
   ignorePatterns:
     - private
     - templates
