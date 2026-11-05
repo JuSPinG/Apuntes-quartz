@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "plugins": {
+    "quartz-folder-note-links": {
+      "source": "github:JasonSooter/quartz-folder-note-links",
+      "resolved": "https://github.com/JasonSooter/quartz-folder-note-links.git",
+      "commit": "4017c9184ba911aaa7ea6462f0a415e758af44d5",
+      "installedAt": "2026-11-05T12:45:36.847Z"
+    }
+  }
+}
