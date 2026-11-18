@@ -28,7 +28,7 @@
 		5. [[2.1.5 Tipos físicos|Tipos físicos]].
 		6. [[2.1.6 Características físicas|Características físicas]].
 		7. [[2.1.7 Velocidad|Velocidad]].
-		8. [[2.1.8 Organización|Organización]].
+		8. [[2.1.8 Organización (computación)|Organización]].
 		9. [[2.1.9 Resumen de características y propiedades de la memoria|Resumen de características y propiedades de la memoria]].
 	2. [[2.2 Jerarquía de memorias|Jerarquía de memorias]].
 		1. [[2.2.1 Ejemplo. Sistema con 2 niveles de memoria|Ejemplo: Sistema con 2 niveles de memoria]].

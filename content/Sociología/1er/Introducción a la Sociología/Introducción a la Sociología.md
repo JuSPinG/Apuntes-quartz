@@ -19,3 +19,6 @@ Profesorado: Juan Morales
 	5. [[2.5 La vida urbana en el capitalismo global. Saskia Sassen|La vida urbana en el capitalismo global. Saskia Sassen]].
 	6. [[2.6 Imaginación sociológica y estructuras de poder. Charles Wright Mills|Imaginación sociológica y estructuras de poder. Charles Wright Mills]].
 	7. [[2.7 La sociedad del riegso. Ulbrich Beck|La sociedad del riegso. Ulbrich Beck]].
+3. ¿Qué hacen los sociólogos?
+	1. [[3.1 Teoría general de Pierre Bourdieu|Teoría general de Pierre Bourdieu]].
+	2. 
